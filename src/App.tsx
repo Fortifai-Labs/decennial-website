@@ -19,6 +19,7 @@ import PaulRambo from './assets/Headshots/Paul_Rambo.png';
 import ZachPena from './assets/Headshots/Zach_Pena.png';
 import { AnimatedTimeline } from './components/AnimatedTimeline';
 import { DecennialHeroImage } from './components/DecennialHeroImage';
+import GlobalReachSection from './components/GlobalReachSection';
 
 function App() {
   return (
@@ -139,6 +140,8 @@ function App() {
           },
         ]}
       />
+
+      <GlobalReachSection />
 
       {/* Leadership Team */}
       <Team
