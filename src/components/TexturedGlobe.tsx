@@ -1,25 +1,24 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
+import { shadow } from 'three/tsl';
+
 interface TexturedGlobeProps {
   className?: string;
-  /** URL to the texture image to wrap around the globe */
   textureUrl: string;
-  /** Enable auto-rotation. Default true */
   autoRotate?: boolean;
-  /** Auto-rotation speed. Default 0.002 */
   autoRotateSpeed?: number;
-  /** Initial X rotation in radians. Default 0.1 */
   initialRotationX?: number;
-  /** Initial Y rotation in radians. Default -0.5 */
   initialRotationY?: number;
-  /** Earth's axial tilt in degrees. Default 0 (set to 23.5 for realistic tilt) */
   axialTilt?: number;
-  /** Background color of the sphere (visible where texture is transparent). Default transparent */
   backgroundColor?: string;
-  /** Ambient light intensity. Default 0.6 */
   ambientLightIntensity?: number;
-  /** Directional light intensity. Default 0.8 */
   directionalLightIntensity?: number;
+  showShadow?: boolean;
+  shadowOpacity?: number;
+  shadowDistance?: number;
+  bobEnabled?: boolean;
+  bobSpeed?: number;
+  bobAmount?: number;
 }
 
 const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
@@ -33,10 +32,17 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
   backgroundColor,
   ambientLightIntensity = 0.6,
   directionalLightIntensity = 0.8,
+  showShadow = true,
+  shadowOpacity = 0.3,
+    shadowDistance = 12,
+  bobEnabled = true,
+  bobSpeed = 1.5,
+  bobAmount = 5,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const frameRef = useRef<number>(0);
+  const [shadowTransform, setShadowTransform] = useState({ scale: 1, opacity: shadowOpacity });
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -47,7 +53,7 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
 
     // Scene setup
     const scene = new THREE.Scene();
-    
+
     // Camera setup
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
     const fitDistance = Math.max(280, 280 * (1 / Math.min(width / height, 1)));
@@ -61,7 +67,7 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // Globe group for overall positioning
+    // Globe group for overall positioning (includes bobbing)
     const globeGroup = new THREE.Group();
     scene.add(globeGroup);
 
@@ -86,19 +92,14 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
 
     // Load texture and create globe
     const textureLoader = new THREE.TextureLoader();
-    
     textureLoader.load(
       textureUrl,
       (texture) => {
-        // Configure texture for proper mapping
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.ClampToEdgeWrapping;
         texture.colorSpace = THREE.SRGBColorSpace;
-        
-        // Create sphere geometry
+
         const sphereGeometry = new THREE.SphereGeometry(GLOBE_RADIUS, 64, 64);
-        
-        // Create material with the texture
         const sphereMaterial = new THREE.MeshStandardMaterial({
           map: texture,
           transparent: true,
@@ -107,7 +108,6 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
           metalness: 0.1,
         });
 
-        // If background color is specified, add a slightly smaller solid sphere behind
         if (backgroundColor) {
           const bgGeometry = new THREE.SphereGeometry(GLOBE_RADIUS - 0.5, 64, 64);
           const bgMaterial = new THREE.MeshStandardMaterial({
@@ -123,10 +123,8 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
         rotationGroup.add(globe);
       },
       undefined,
-      (error: any) => {
+      (error: unknown) => {
         console.error('Error loading texture:', error);
-        
-        // Fallback: create a simple colored sphere
         const sphereGeometry = new THREE.SphereGeometry(GLOBE_RADIUS, 64, 64);
         const sphereMaterial = new THREE.MeshStandardMaterial({
           color: 0x333333,
@@ -147,7 +145,6 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
     let prevX = 0;
     let prevY = 0;
 
-    // Mouse events
     const onMouseDown = (e: MouseEvent) => {
       isDragging = true;
       prevX = e.clientX;
@@ -169,7 +166,6 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
       }
     };
 
-    // Touch events
     const onTouchStart = (e: TouchEvent) => {
       if (e.touches.length === 1) {
         isDragging = true;
@@ -191,7 +187,6 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
       }
     };
 
-    // Add event listeners
     container.addEventListener('mousedown', onMouseDown);
     window.addEventListener('mouseup', onMouseUp);
     window.addEventListener('mousemove', onMouseMove);
@@ -200,6 +195,9 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
     window.addEventListener('touchmove', onTouchMove);
 
     // Animation loop
+    const startTime = Date.now();
+    const baseY = 0;
+
     const animate = () => {
       frameRef.current = requestAnimationFrame(animate);
 
@@ -207,11 +205,25 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
         rotationGroup.rotation.y += autoRotateSpeed;
       }
 
+      // Bobbing animation
+      if (bobEnabled) {
+        const elapsed = (Date.now() - startTime) / 1000;
+        const bobOffset = Math.sin(elapsed * bobSpeed) * bobAmount;
+        globeGroup.position.y = baseY + bobOffset;
+
+        // Update CSS shadow based on bob position
+        if (showShadow) {
+          const normalizedBob = bobOffset / bobAmount; // -1 to 1
+          const scale = 1 + normalizedBob * 0.1; // Scale between 0.9 and 1.10
+          const opacity = shadowOpacity * (1 - normalizedBob * 0.3); // Fade when higher
+          setShadowTransform({ scale, opacity });
+        }
+      }
+
       renderer.render(scene, camera);
     };
     animate();
 
-    // Handle resize
     const handleResize = () => {
       if (!containerRef.current) return;
       const w = containerRef.current.clientWidth;
@@ -223,7 +235,6 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
     };
     window.addEventListener('resize', handleResize);
 
-    // Cleanup
     return () => {
       container.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
@@ -248,14 +259,37 @@ const TexturedGlobe: React.FC<TexturedGlobeProps> = ({
     backgroundColor,
     ambientLightIntensity,
     directionalLightIntensity,
+    showShadow,
+    shadowDistance,
+    shadowOpacity,
+    bobEnabled,
+    bobSpeed,
+    bobAmount,
   ]);
 
-  return (
-    <div
-      ref={containerRef}
-      className={className}
-      style={{ width: '100%', height: '100%', minHeight: '400px', cursor: 'grab' }}
-    />
+    return (
+    <div className="relative" style={{ width: '100%', height: '100%' }}>
+      <div
+        ref={containerRef}
+        className={className}
+        style={{ width: '100%', height: '100%', cursor: 'grab' }}
+      />
+      {showShadow && (
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: '60%',
+            height: '20%',
+            left: '50%',
+            bottom: `-${shadowDistance}%`,
+            borderRadius: '50%',
+            background: `radial-gradient(ellipse at center, rgba(0,0,0,${shadowTransform.opacity}) 0%, rgba(0,0,0,${shadowTransform.opacity * 0.5}) 40%, transparent 70%)`,
+            transform: `translateX(-50%) translateY(50%) scale(${shadowTransform.scale})`,
+            filter: 'blur(8px)',
+          }}
+        />
+      )}
+    </div>
   );
 };
 

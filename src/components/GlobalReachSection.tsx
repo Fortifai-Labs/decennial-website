@@ -7,10 +7,9 @@ interface GlobalReachSectionProps {
 
 const GlobalReachSection: React.FC<GlobalReachSectionProps> = ({ className = '' }) => {
   const stats = [
-    { value: '15+', label: 'Countries' },
-    { value: '50+', label: 'Projects Delivered' },
-    { value: '10GW+', label: 'Energy Capacity' },
-    { value: '24/7', label: 'Global Operations' },
+    { value: '43', label: 'Decennial Team Members' },
+    { value: '200+', label: 'Employees through formal joint ventures' },
+    { value: '15+', label: 'Countries with active development & operations' },
   ];
 
   const regions = [
@@ -39,8 +38,8 @@ const GlobalReachSection: React.FC<GlobalReachSectionProps> = ({ className = '' 
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-6">
               {stats.map((stat, index) => (
-                <div key={index} className="border-l-2 border-amber-500 pl-4">
-                  <div className="text-3xl lg:text-4xl font-bold text-amber-500">
+                <div key={index} className="border-l-4 border-[var(--decennial-secondary)] pl-4">
+                  <div className="text-3xl lg:text-4xl font-bold text-[var(--decennial-secondary)]">
                     {stat.value}
                   </div>
                   <div className="text-gray-400 text-sm uppercase tracking-wide">
@@ -49,25 +48,22 @@ const GlobalReachSection: React.FC<GlobalReachSectionProps> = ({ className = '' 
                 </div>
               ))}
             </div>
-
-            {/* CTA Button */}
-            <button className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-black font-semibold rounded-lg transition-colors">
-              Explore Our Projects
-            </button>
           </div>
 
           {/* Right Column - Globe */}
-          <div className="h-[200px] lg:h-[300px]">
+          <div className="h-[200px] lg:h-[300px] relative overflow-visible">
             <TexturedGlobe
-              textureUrl={GlobeTexture}
-              className="w-full h-full"
-              autoRotate={true}
-              autoRotateSpeed={0.0005}
-              initialRotationX={0.1}
-              initialRotationY={-0.5}
-              ambientLightIntensity={2.5}
-              directionalLightIntensity={.7}
-            />
+                textureUrl={GlobeTexture}
+                className="w-full h-full"
+                autoRotate={true}
+                autoRotateSpeed={0.0005}
+                initialRotationX={0.1}
+                initialRotationY={-0.5}
+                ambientLightIntensity={2.5}
+                bobSpeed={0.5}
+                bobAmount={8}
+                shadowOpacity={0.3}
+                />
           </div>
         </div>
       </div>

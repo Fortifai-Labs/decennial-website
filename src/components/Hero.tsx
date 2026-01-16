@@ -80,11 +80,13 @@ export function Hero({
         <Button size="lg" className='!bg-[var(--decennial-secondary)] hover:!bg-[var(--decennial-secondary-hover)] !text-[var(--decennial-primary)] cursor-pointer' rightIcon={<ArrowRight className="w-5 h-5 " />}>
           <a href={primaryHref}>{primaryCta}</a>
         </Button>
-        {showPlayButton ? (
+        {showPlayButton && (
           <Button variant="outline" size="lg" className='!bg-[var(--decennial-secondary)] !text-[var(--decennial-primary)]' leftIcon={<Play className="w-5 h-5" />}>
             <a href={secondaryHref}>Watch Demo</a>
           </Button>
-        ) : (
+        )
+        }
+        {!showPlayButton && secondaryCta && (
           <Button variant="outline" size="lg" className='!border-[var(--decennial-secondary)] hover:!border-[var(--decennial-secondary-hover)] hover:!bg-white !text-[var(--decennial-primary)]'>
             <a href={secondaryHref}>{secondaryCta}</a>
           </Button>
