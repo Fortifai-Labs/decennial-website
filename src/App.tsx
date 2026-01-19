@@ -253,15 +253,9 @@ function App() {
         tagline="Building the infrastructure of tomorrow through integrated development, capital, and operations."
         variant="columns"
         showNewsletter={false}
+        socialLinks={[]}
         columns={[
-          {
-            title: 'Platform',
-            links: [
-              { label: 'Decennial Development', href: '#' },
-              { label: 'Decennial Capital', href: '#' },
-              { label: 'Tactical Operations', href: '#' },
-            ],
-          },
+ 
           {
             title: 'Companies',
             links: [
@@ -272,7 +266,7 @@ function App() {
           {
             title: 'Company',
             links: [
-              { label: 'About', href: '#about' },
+              { label: 'Our Story', href: '#journey' },
               { label: 'Leadership', href: '#team' },
               { label: 'Contact', href: '#contact' },
             ],

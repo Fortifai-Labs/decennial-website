@@ -77,19 +77,25 @@ export function Hero({
       </Text>
       
       <ButtonGroup className={clsx(variant === 'centered' && 'justify-center')}>
-        <Button size="lg" className='!bg-[var(--decennial-secondary)] hover:!bg-[var(--decennial-secondary-hover)] !text-[var(--decennial-primary)] cursor-pointer' rightIcon={<ArrowRight className="w-5 h-5 " />}>
-          <a href={primaryHref}>{primaryCta}</a>
-        </Button>
-        {showPlayButton && (
-          <Button variant="outline" size="lg" className='!bg-[var(--decennial-secondary)] !text-[var(--decennial-primary)]' leftIcon={<Play className="w-5 h-5" />}>
-            <a href={secondaryHref}>Watch Demo</a>
+        <a href={primaryHref}>
+          <Button size="lg" className='!bg-[var(--decennial-secondary)] hover:!bg-[var(--decennial-secondary-hover)] !text-[var(--decennial-primary)] cursor-pointer' rightIcon={<ArrowRight className="w-5 h-5 " />}>
+            {primaryCta}
           </Button>
+        </a>
+        {showPlayButton && (
+          <a href={secondaryHref}>
+            <Button variant="outline" size="lg" className='!bg-[var(--decennial-secondary)] !text-[var(--decennial-primary)]' leftIcon={<Play className="w-5 h-5" />}>
+              Watch Demo
+            </Button>
+          </a>
         )
         }
         {!showPlayButton && secondaryCta && (
-          <Button variant="outline" size="lg" className='!border-[var(--decennial-secondary)] hover:!border-[var(--decennial-secondary-hover)] hover:!bg-white !text-[var(--decennial-primary)]'>
-            <a href={secondaryHref}>{secondaryCta}</a>
-          </Button>
+          <a href={secondaryHref}>
+            <Button variant="outline" size="lg" className='!border-[var(--decennial-secondary)] hover:!border-[var(--decennial-secondary-hover)] hover:!bg-white !text-[var(--decennial-primary)]'>
+              {secondaryCta}
+            </Button>
+          </a>
         )}
       </ButtonGroup>
     </div>
