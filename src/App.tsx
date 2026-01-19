@@ -254,6 +254,7 @@ function App() {
         variant="columns"
         showNewsletter={false}
         socialLinks={[]}
+        policyLinks={[]}
         columns={[
  
           {
