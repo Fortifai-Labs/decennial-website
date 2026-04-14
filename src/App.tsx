@@ -60,7 +60,7 @@ import Datacenter1 from './assets/Other/Datacenter1.jpg';
 import Datacenter2 from './assets/Other/Datacenter2.jpg';
 import Datacenter3 from './assets/Other/Datacenter3.jpg';
 import LakeviewGreen from './assets/Other/LakeviewGreen.jpg';
-import LakeviewGreen1 from './assets/Other/LakeviewGreen1.jpg';
+
 import Soli1 from './assets/Other/Soli1.png';
 import Soli2 from './assets/Other/Soli2.jpg';
 import Soli3 from './assets/Other/Soli3.jpg';
@@ -649,7 +649,7 @@ function App() {
           secondaryCta=''
           image={
             <DecennialHeroImage
-              images={[FultonMarketDistrict, DigitalCrossroads, Soli1, Datacenter1, LakeviewGreen, Soli2, Datacenter2, LakeviewGreen1, Soli3, Datacenter3]}
+              images={[FultonMarketDistrict, DigitalCrossroads, Soli1, Datacenter1, LakeviewGreen, Soli2, Datacenter2, Soli3, Datacenter3]}
               rotateImages={true}
               interval={5000}
               strokeColor="var(--decennial-primary)"
