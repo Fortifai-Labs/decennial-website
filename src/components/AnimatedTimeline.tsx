@@ -1,5 +1,5 @@
 // components/AnimatedTimeline.tsx
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import clsx from 'clsx';
 import { Check } from 'lucide-react';
 import { Section } from './Section';
@@ -38,51 +38,48 @@ export function AnimatedTimeline({
   className,
 }: AnimatedTimelineProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-    // Initialize first item on mount
-    useEffect(() => {
-    setProgress((1 / items.length) * 100);
-    }, [items.length]);
 
-    // Handle scroll-based updates
-    useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-    
+  // Scroll-based tracking: find the item whose top is closest to viewport center.
+  // This avoids IntersectionObserver threshold issues that cause skipping.
+  const handleScroll = useCallback(() => {
+    const center = window.innerHeight / 2;
+    let closest = 0;
+    let closestDist = Infinity;
+
     itemRefs.current.forEach((ref, index) => {
-        if (!ref) return;
-        
-        const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                setActiveIndex(index);
-                setProgress(((index + 1) / items.length) * 100);
-            }
-            });
-        },
-        { threshold: 0.5, rootMargin: '-20% 0px -20% 0px' }
-        );
-        
-        observer.observe(ref);
-        observers.push(observer);
+      if (!ref) return;
+      const rect = ref.getBoundingClientRect();
+      const itemCenter = rect.top + rect.height / 2;
+      const dist = Math.abs(itemCenter - center);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closest = index;
+      }
     });
 
-    return () => observers.forEach((obs) => obs.disconnect());
-    }, [items.length]);
+    setActiveIndex(closest);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // set initial
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  const progress = ((activeIndex + 1) / items.length) * 100;
 
   return (
-    <Section 
-      bgColor={bgColor} 
-      textColor={textColor} 
-      paddingY={paddingY} 
-      gradient={gradient} 
+    <Section
+      bgColor={bgColor}
+      textColor={textColor}
+      paddingY={paddingY}
+      gradient={gradient}
       className={className}
     >
       {title && (
         <div className="text-center mb-12">
-          <Heading as="h2" fontSize="4xl" textAlign="center" className="mb-4 text-white ">
+          <Heading as="h2" fontSize="4xl" textAlign="center" className="mb-4 text-white">
             {title}
           </Heading>
           {subtitle && (
@@ -93,143 +90,100 @@ export function AnimatedTimeline({
         </div>
       )}
 
-      <div ref={containerRef} className="relative max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          {/* Left side - Sticky Image */}
-          <div className="hidden lg:block">
-            <div className="sticky top-[calc(50vh-200px)] h-[400px]">
-              <div className="relative h-full w-full overflow-hidden rounded-2xl bg-gray-100">
-                {items.map((item, index) => (
-                  <div
-                    key={index}
-                    className={clsx(
-                      'absolute inset-0 transition-all duration-700 ease-out',
-                      activeIndex === index 
-                        ? 'opacity-100 scale-100 translate-y-0' 
-                        : index < activeIndex 
-                          ? 'opacity-0 scale-95 -translate-y-8'
-                          : 'opacity-0 scale-95 translate-y-8'
-                    )}
-                  >
-                    {item.image ? (
-                      <img 
-                        src={item.image} 
-                        alt={item.title}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-200 to-gray-300">
-                        <span className="text-4xl font-bold text-gray-400">{item.date}</span>
-                      </div>
-                    )}
-                  </div>
-                ))}
-                
-                {/* Date overlay */}
-                <div className="absolute bottom-4 left-4 bg-[var(--decennial-primary)] text-white px-4 py-2 rounded-lg">
-                  <span className="font-semibold">{items[activeIndex]?.date}</span>
+      <div className="relative max-w-4xl mx-auto">
+        {/* Timeline track background */}
+        <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200" />
+
+        {/* Animated progress line */}
+        <div
+          className="absolute left-4 top-0 w-0.5 transition-all duration-500 ease-out origin-top"
+          style={{
+            height: `${progress}%`,
+            backgroundColor: accentColor,
+          }}
+        />
+
+        {/* Timeline items */}
+        <div className="space-y-16">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              ref={(el) => { itemRefs.current[index] = el; }}
+              className={clsx(
+                'relative flex gap-6 transition-all duration-500',
+                activeIndex === index
+                  ? 'opacity-100'
+                  : 'opacity-40'
+              )}
+            >
+              {/* Timeline node */}
+              <div className="relative z-10 flex-shrink-0">
+                <div
+                  className={clsx(
+                    'w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300',
+                    index <= activeIndex
+                      ? 'scale-100'
+                      : 'scale-75'
+                  )}
+                  style={{
+                    backgroundColor: index <= activeIndex ? accentColor : '#e5e7eb',
+                  }}
+                >
+                  {index < activeIndex ? (
+                    <Check className="w-4 h-4 text-[var(--decennial-primary)]" />
+                  ) : index === activeIndex ? (
+                    <div className="w-3 h-3 rounded-full bg-[var(--decennial-primary)]" />
+                  ) : (
+                    <div className="w-3 h-3 rounded-full bg-gray-400" />
+                  )}
                 </div>
               </div>
-            </div>
-          </div>
 
-          {/* Right side - Timeline Items */}
-          <div className="relative">
-            {/* Timeline track background */}
-            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200" />
-            
-            {/* Animated progress line */}
-            <div 
-              className="absolute left-4 top-0 w-0.5 transition-all duration-500 ease-out origin-top"
-              style={{ 
-                height: `${progress}%`,
-                backgroundColor: accentColor,
-              }}
-            />
-
-            {/* Timeline items */}
-            <div className="space-y-16">
-              {items.map((item, index) => (
-                <div
-                  key={index}
-                  ref={(el) => { itemRefs.current[index] = el; }}
+              {/* Content + Image */}
+              <div
+                className={clsx(
+                  'flex-1 pt-1 transition-all duration-500',
+                  activeIndex === index
+                    ? 'translate-x-0'
+                    : 'translate-x-2'
+                )}
+              >
+                <Text
+                  fontSize="sm"
+                  fontWeight="semibold"
+                  className="mb-1"
+                  textColor="text-[var(--decennial-secondary)]"
+                >
+                  {item.date}
+                </Text>
+                <Heading
+                  as="h3"
+                  fontSize="xl"
+                  fontWeight="semibold"
                   className={clsx(
-                    'relative flex gap-6 transition-all duration-500 min-h-[180px] md:min-h-[300px]',
-                    activeIndex === index 
-                      ? 'opacity-100' 
-                      : 'opacity-40'
+                    'mb-2 transition-all duration-300',
+                    activeIndex === index ? 'text-white' : '!opacity-50 !text-white'
                   )}
                 >
-                  {/* Timeline node */}
-                  <div className="relative z-10 flex-shrink-0">
-                    <div 
-                      className={clsx(
-                        'w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300',
-                        index <= activeIndex 
-                          ? 'scale-100' 
-                          : 'scale-75'
-                      )}
-                      style={{
-                        backgroundColor: index <= activeIndex ? accentColor : '#e5e7eb',
-                      }}
-                    >
-                      {index < activeIndex ? (
-                        <Check className="w-4 h-4 text-[var(--decennial-primary)]" />
-                      ) : index === activeIndex ? (
-                        <div className="w-3 h-3 rounded-full bg-[var(--decennial-primary)]" />
-                      ) : (
-                        <div className="w-3 h-3 rounded-full bg-gray-400" />
-                      )}
-                    </div>
-                  </div>
+                  {item.title}
+                </Heading>
+                <Text className={`transition-all duration-300 ${activeIndex === index ? 'text-white' : '!opacity-50 !text-white'}`}>
+                  {item.description}
+                </Text>
 
-                  {/* Content */}
-                  <div 
-                    className={clsx(
-                      'flex-1 pt-1 transition-all duration-500',
-                      activeIndex === index 
-                        ? 'translate-x-0' 
-                        : 'translate-x-2'
-                    )}
-                  >
-                    <Text 
-                      fontSize="sm" 
-                      fontWeight="semibold" 
-                      className="mb-1"
-                      textColor="text-[var(--decennial-secondary)]"
-                    >
-                      {item.date}
-                    </Text>
-                    <Heading 
-                      as="h3" 
-                      fontSize="xl" 
-                      fontWeight="semibold" 
-                      className={clsx(
-                        'mb-2 transition-all duration-300',
-                        activeIndex === index ? 'text-white' : '!opacity-50 !text-white'
-                      )}
-                    >
-                      {item.title}
-                    </Heading>
-                    <Text className={`transition-all duration-300 ${activeIndex === index ? 'text-white' : '!opacity-50 !text-white'}`}>
-                      {item.description}
-                    </Text>
-
-                    {/* Mobile image - always visible next to each section */}
-                    {item.image && (
-                      <div className="lg:hidden mt-4 rounded-xl overflow-hidden">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-48 object-cover rounded-xl"
-                        />
-                      </div>
-                    )}
+                {/* Image inline per section */}
+                {item.image && (
+                  <div className="mt-4 rounded-xl overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-48 sm:h-56 lg:h-64 object-cover rounded-xl"
+                    />
                   </div>
-                </div>
-              ))}
+                )}
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </Section>
