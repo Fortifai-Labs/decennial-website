@@ -179,7 +179,7 @@ export function Footer({
   return (
     <footer className={clsx(bgClasses, 'py-16', className)} style={gradientStyle}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 lg:gap-16">
           {/* Brand column */}
           <div className="col-span-2">
             {renderLogo()}

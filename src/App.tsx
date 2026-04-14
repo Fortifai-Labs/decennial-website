@@ -799,7 +799,7 @@ function App() {
                 <Newspaper className="w-8 h-8 text-[var(--decennial-primary)]" />
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Press</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Press</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
               For media inquiries, interviews, or press materials, please reach out to our communications team.
             </p>

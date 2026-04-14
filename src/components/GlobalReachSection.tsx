@@ -21,12 +21,12 @@ const GlobalReachSection: React.FC<GlobalReachSectionProps> = ({ className = '' 
 
   return (
     <section className={`w-full bg-white text-black ${className}`}>
-      <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Data */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
                 Global Reach with Local Expertise
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed">
@@ -36,7 +36,7 @@ const GlobalReachSection: React.FC<GlobalReachSectionProps> = ({ className = '' 
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {stats.map((stat, index) => (
                 <div key={index} className="border-l-4 border-[var(--decennial-secondary)] pl-4">
                   <div className="text-3xl lg:text-4xl font-bold text-[var(--decennial-secondary)]">
@@ -51,7 +51,7 @@ const GlobalReachSection: React.FC<GlobalReachSectionProps> = ({ className = '' 
           </div>
 
           {/* Right Column - Globe */}
-          <div className="h-[200px] lg:h-[300px] relative overflow-visible">
+          <div className="h-[180px] md:h-[250px] lg:h-[300px] relative overflow-visible">
             <TexturedGlobe
                 textureUrl={GlobeTexture}
                 className="w-full h-full"

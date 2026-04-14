@@ -59,7 +59,7 @@ export function Stats({
   const renderStat = (stat: Stat, index: number) => {
     const content = (
       <>
-        <div className={clsx('text-4xl md:text-5xl font-bold mb-2', valueColor)}>
+        <div className={clsx('text-3xl sm:text-4xl md:text-5xl font-bold mb-2', valueColor)}>
           {stat.value}
         </div>
         <div className={clsx('text-lg font-medium', textColor)}>{stat.label}</div>

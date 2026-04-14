@@ -154,7 +154,7 @@ export function AnimatedTimeline({
                   key={index}
                   ref={(el) => { itemRefs.current[index] = el; }}
                   className={clsx(
-                    'relative flex gap-6 transition-all duration-500  min-h-[300px]',
+                    'relative flex gap-6 transition-all duration-500 min-h-[180px] md:min-h-[300px]',
                     activeIndex === index 
                       ? 'opacity-100' 
                       : 'opacity-40'

@@ -143,7 +143,7 @@ export function Navbar({
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         )}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
+        <div className="flex flex-col items-center justify-center h-full gap-5 px-6 overflow-y-auto py-16">
           {links.map((link) => {
             const isExternal = link.href.startsWith('http');
             return (
@@ -151,7 +151,7 @@ export function Navbar({
               key={link.label}
               href={link.href}
               {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              className="text-2xl font-medium text-gray-900 hover:text-blue-600 transition-colors"
+              className="text-lg sm:text-2xl font-medium text-gray-900 hover:text-blue-600 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
@@ -160,7 +160,7 @@ export function Navbar({
           })}
           <a
             href={ctaHref}
-            className="mt-4 inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+            className="mt-4 inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
             onClick={() => setIsOpen(false)}
           >
             {ctaText}
