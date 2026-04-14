@@ -54,7 +54,7 @@ export function Navbar({
       <nav
         className={clsx(
           'w-full z-50',
-          sticky && 'sticky top-0',
+          sticky && 'fixed top-0 left-0 right-0',
           !transparent && !gradient?.enabled && bgColor,
           !transparent && gradient?.enabled && gradientClasses,
           !transparent && shadowMap[shadow],
@@ -167,6 +167,8 @@ export function Navbar({
           </a>
         </div>
       </div>
+      {/* Spacer to offset fixed navbar height */}
+      {sticky && <div className="h-16" />}
     </>
   );
 }

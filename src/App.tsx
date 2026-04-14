@@ -865,7 +865,6 @@ function App() {
             links: [
               { label: 'info@decennialgroup.com', href: 'mailto:info@decennialgroup.com' },
               { label: 'investors@decennialgroup.com', href: 'mailto:investors@decennialgroup.com' },
-              { label: 'LinkedIn', href: 'https://www.linkedin.com/company/decennial-group/about/' },
             ],
           },
         ]}
