@@ -71,9 +71,9 @@ interface AvatarProps {
 function Avatar({ name, image, size = 'lg' }: AvatarProps) {
   const sizes = {
     sm: 'w-12 h-12 text-lg',
-    md: 'w-14 h-14 sm:w-16 sm:h-16 text-xl',
-    lg: 'w-20 h-20 sm:w-24 sm:h-24 text-2xl sm:text-3xl',
-    xl: 'w-24 h-24 sm:w-32 sm:h-32 text-3xl sm:text-4xl',
+    md: 'w-16 h-16 sm:w-20 sm:h-20 text-xl',
+    lg: 'w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 text-3xl sm:text-4xl',
+    xl: 'w-32 h-32 sm:w-40 sm:h-40 lg:w-44 lg:h-44 text-4xl sm:text-5xl',
   };
 
   const initials = name
@@ -100,8 +100,9 @@ function Avatar({ name, image, size = 'lg' }: AvatarProps) {
         <img
           src={image}
           alt={name}
+          decoding="async"
           className={clsx(
-            'rounded-full object-cover',
+            'rounded-full object-cover [image-rendering:auto]',
             sizes[size]
           )}
         />
