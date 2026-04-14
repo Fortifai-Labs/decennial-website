@@ -10,7 +10,7 @@ import {
   Team,
   CTA,
 } from './components';
-import { Building, CircleDollarSign, Handshake} from 'lucide-react'
+import { Building, CircleDollarSign, Handshake, Linkedin, Mail, MapPin, Newspaper } from 'lucide-react'
 import { Contact } from './components/Contact';
 import DecennialLogo from './assets/Logos/Decennial_White_Horizontal.png';
 import DecennialNegativeLogo from './assets/Logos/Decennial_Negative_Logo.png';
@@ -79,6 +79,7 @@ function App() {
           { label: 'Global Reach', href: '#global' },
           { label: 'Leadership', href: '#team' },
           { label: 'Contact', href: '#contact' },
+          { label: 'Press', href: '#press' },
           { label: 'Investor Portal', href: 'https://services.dataexchange.fiscloudservices.com/LogOn/4373073?redirectUrl=%2FDocument%2F4373073' },
         ]}
         ctaText="Get Started"
@@ -789,9 +790,33 @@ function App() {
       />
       */}
 
+      {/* Press */}
+      <section id="press">
+        <div className="bg-white py-20">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="flex justify-center mb-6">
+              <div className="p-4 rounded-full bg-[var(--decennial-primary)]/10">
+                <Newspaper className="w-8 h-8 text-[var(--decennial-primary)]" />
+              </div>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Press</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+              For media inquiries, interviews, or press materials, please reach out to our communications team.
+            </p>
+            <a
+              href="mailto:scoop@decennialgroup.com"
+              className="inline-flex items-center gap-2 px-8 py-3 text-base font-medium text-[var(--decennial-primary)] bg-[var(--decennial-secondary)] rounded-lg hover:bg-[var(--decennial-secondary-hover)] transition-colors"
+            >
+              <Mail className="w-5 h-5" />
+              scoop@decennialgroup.com
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Contact */}
       <section id="contact">
-        <Contact 
+        <Contact
           buttonBgColor='bg-[var(--decennial-secondary)]'
           buttonTextColor='text-[var(--decennial-primary)]'
           variant="minimal"
@@ -804,13 +829,14 @@ function App() {
       <Footer
         logo={<img src={DecennialLogo} alt="Decennial Group" className="h-12 w-auto"/>}
         logoText=""
-        tagline="Building the infrastructure of tomorrow through integrated development, capital, and operations."
+        tagline="Building partnerships to last decades and beyond."
         variant="columns"
         showNewsletter={false}
-        socialLinks={[]}
+        socialLinks={[
+          { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/company/decennial-group/about/', label: 'LinkedIn' },
+        ]}
         policyLinks={[]}
         columns={[
- 
           {
             title: 'Companies',
             links: [
@@ -823,11 +849,27 @@ function App() {
             links: [
               { label: 'Our Story', href: '#journey' },
               { label: 'Leadership', href: '#team' },
+              { label: 'Press', href: '#press' },
               { label: 'Contact', href: '#contact' },
             ],
           },
+          {
+            title: 'Locations',
+            links: [
+              { label: '216 W Ohio St, Chicago, IL 60654', href: 'https://maps.google.com/?q=216+W+Ohio+St+Chicago+IL+60654' },
+              { label: '1200 17th St, Suite 1210, Denver, CO 80202', href: 'https://maps.google.com/?q=1200+17th+St+Suite+1210+Denver+CO+80202' },
+            ],
+          },
+          {
+            title: 'Connect',
+            links: [
+              { label: 'info@decennialgroup.com', href: 'mailto:info@decennialgroup.com' },
+              { label: 'investors@decennialgroup.com', href: 'mailto:investors@decennialgroup.com' },
+              { label: 'LinkedIn', href: 'https://www.linkedin.com/company/decennial-group/about/' },
+            ],
+          },
         ]}
-        copyright="© 2026 Decennial Group. All rights reserved."
+        copyright={`© ${new Date().getFullYear()} Decennial Group. All rights reserved.`}
         bgColor='bg-[var(--decennial-primary)]'
       />
     </div>
