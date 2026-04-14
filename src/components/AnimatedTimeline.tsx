@@ -97,7 +97,7 @@ export function AnimatedTimeline({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Left side - Sticky Image */}
           <div className="hidden lg:block">
-            <div className="sticky top-32 h-[400px]">
+            <div className="sticky top-[calc(50vh-200px)] h-[400px]">
               <div className="relative h-full w-full overflow-hidden rounded-2xl bg-gray-100">
                 {items.map((item, index) => (
                   <div
