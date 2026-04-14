@@ -215,20 +215,13 @@ export function AnimatedTimeline({
                       {item.description}
                     </Text>
 
-                    {/* Mobile image - shows inline */}
+                    {/* Mobile image - always visible next to each section */}
                     {item.image && (
-                      <div 
-                        className={clsx(
-                          'lg:hidden mt-4 rounded-xl overflow-hidden transition-all duration-500',
-                          activeIndex === index 
-                            ? 'opacity-100 max-h-48' 
-                            : 'opacity-0 max-h-0'
-                        )}
-                      >
-                        <img 
-                          src={item.image} 
+                      <div className="lg:hidden mt-4 rounded-xl overflow-hidden">
+                        <img
+                          src={item.image}
                           alt={item.title}
-                          className="w-full h-48 object-cover"
+                          className="w-full h-48 object-cover rounded-xl"
                         />
                       </div>
                     )}
