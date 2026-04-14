@@ -40,6 +40,14 @@ interface TeamProps {
   showSocial?: boolean;
   gradient?: GradientConfig;
   className?: string;
+  nameColor?: string;
+  roleColor?: string;
+  bioColor?: string;
+  socialBgColor?: string;
+  socialTextColor?: string;
+  socialHoverBgColor?: string;
+  socialHoverTextColor?: string;
+  avatarRingColor?: string;
 }
 
 const defaultMembers: TeamMember[] = [
@@ -73,9 +81,10 @@ interface AvatarProps {
   name: string;
   image?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
+  ringColor?: string;
 }
 
-function Avatar({ name, image, size = 'lg' }: AvatarProps) {
+function Avatar({ name, image, size = 'lg', ringColor }: AvatarProps) {
   const sizes = {
     sm: 'w-12 h-12 text-lg',
     md: 'w-16 h-16 text-xl',
@@ -103,7 +112,7 @@ function Avatar({ name, image, size = 'lg' }: AvatarProps) {
 
   if (image) {
     return (
-      <div className='bg-[var(--decennial-secondary)] rounded-full'>
+      <div className={clsx('rounded-full', ringColor || 'bg-[var(--decennial-secondary)]')}>
         <img
           src={image}
           alt={name}
@@ -129,7 +138,21 @@ function Avatar({ name, image, size = 'lg' }: AvatarProps) {
   );
 }
 
-function SocialIcon({ platform, href }: { platform: string; href: string }) {
+function SocialIcon({
+  platform,
+  href,
+  bgColor = 'bg-gray-100',
+  textColor = 'text-gray-600',
+  hoverBgColor = 'hover:bg-blue-100',
+  hoverTextColor = 'hover:text-blue-600',
+}: {
+  platform: string;
+  href: string;
+  bgColor?: string;
+  textColor?: string;
+  hoverBgColor?: string;
+  hoverTextColor?: string;
+}) {
   const icons: Record<string, ReactNode> = {
     twitter: <Twitter className="w-4 h-4" />,
     linkedin: <Linkedin className="w-4 h-4" />,
@@ -140,7 +163,9 @@ function SocialIcon({ platform, href }: { platform: string; href: string }) {
   return (
     <a
       href={href}
-      className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={clsx('p-2 rounded-full transition-colors', bgColor, textColor, hoverBgColor, hoverTextColor)}
     >
       {icons[platform]}
     </a>
@@ -164,6 +189,14 @@ export function Team({
   showSocial = true,
   gradient,
   className,
+  nameColor = '!text-white',
+  roleColor = 'text-[var(--decennial-secondary)]',
+  bioColor = 'text-white',
+  socialBgColor,
+  socialTextColor,
+  socialHoverBgColor,
+  socialHoverTextColor,
+  avatarRingColor,
 }: TeamProps) {
   const renderMember = (member: TeamMember, index: number) => {
     if (variant === 'simple') {
@@ -222,23 +255,31 @@ export function Team({
         className="text-center"
       >
         <div className="flex justify-center mb-4">
-          <Avatar name={member.name} image={member.avatar} />
+          <Avatar name={member.name} image={member.avatar} ringColor={avatarRingColor} />
         </div>
-        <Heading as="h3" fontSize="xl" fontWeight="semibold" textAlign="center" className="mb-1 !text-white">
+        <Heading as="h3" fontSize="xl" fontWeight="semibold" textAlign="center" className={clsx('mb-1', nameColor)}>
           {member.name}
         </Heading>
-        <Text textAlign="center" textColor="text-[var(--decennial-secondary)]" fontSize="sm" fontWeight="medium" className="mb-3">
+        <Text textAlign="center" textColor={roleColor} fontSize="sm" fontWeight="medium" className="mb-3">
           {member.role}
         </Text>
         {showBio && member.bio && (
-          <Text textAlign="center" textColor="text-white" fontSize="sm">
+          <Text textAlign="center" textColor={bioColor} fontSize="sm">
             {member.bio}
           </Text>
         )}
         {showSocial && member.social && (
           <div className="flex justify-center gap-2 mt-4">
             {Object.entries(member.social).map(([platform, href]) => (
-              <SocialIcon key={platform} platform={platform} href={href} />
+              <SocialIcon
+                key={platform}
+                platform={platform}
+                href={href}
+                bgColor={socialBgColor}
+                textColor={socialTextColor}
+                hoverBgColor={socialHoverBgColor}
+                hoverTextColor={socialHoverTextColor}
+              />
             ))}
           </div>
         )}

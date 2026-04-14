@@ -14,10 +14,41 @@ import { Building, CircleDollarSign, Handshake} from 'lucide-react'
 import { Contact } from './components/Contact';
 import DecennialLogo from './assets/Logos/Decennial_White_Horizontal.png';
 import DecennialNegativeLogo from './assets/Logos/Decennial_Negative_Logo.png';
+// Headshots — existing
 import DavidPavlik from './assets/Headshots/David_Pavlik.png';
 import JohnKrappman from './assets/Headshots/John_Krappman.png';
 import PaulRambo from './assets/Headshots/Paul_Rambo.png';
 import ZachPena from './assets/Headshots/Zach_Pena.png';
+// Headshots — to be added as camelCase firstLast.png
+import adamPleasant from './assets/Headshots/adamPleasant.png';
+import ajKrappman from './assets/Headshots/ajKrappman.png';
+import angelaArriaga from './assets/Headshots/angelaArriaga.png';
+import angelaDuncan from './assets/Headshots/angelaDuncan.png';
+import audreySimpson from './assets/Headshots/audreySimpson.png';
+import benKroll from './assets/Headshots/benKroll.png';
+import carterBarczak from './assets/Headshots/carterBarczak.png';
+import chaseCook from './assets/Headshots/chaseCook.png';
+import drewWorkheiser from './assets/Headshots/drewWorkheiser.png';
+import elizabethCarter from './assets/Headshots/elizabethCarter.png';
+import ethanSummers from './assets/Headshots/ethanSummers.png';
+import joeKreeger from './assets/Headshots/joeKreeger.png';
+import johnKellam from './assets/Headshots/johnKellam.png';
+import kaitlynLeahy from './assets/Headshots/kaitlynLeahy.png';
+import kevinKennedy from './assets/Headshots/kevinKennedy.png';
+import kostaHontos from './assets/Headshots/kostaHontos.png';
+import lukeLyons from './assets/Headshots/lukeLyons.png';
+import malcolmWeems from './assets/Headshots/malcolmWeems.png';
+import markPruitt from './assets/Headshots/markPruitt.png';
+import mattPowers from './assets/Headshots/mattPowers.png';
+import nateDziwulski from './assets/Headshots/nateDziwulski.png';
+import owenMcCarthy from './assets/Headshots/owenMcCarthy.png';
+import rebeccaRose from './assets/Headshots/rebeccaRose.png';
+import robCumbelich from './assets/Headshots/robCumbelich.png';
+import scottGoodman from './assets/Headshots/scottGoodman.png';
+import scottHagood from './assets/Headshots/scottHagood.png';
+import tateFerguson from './assets/Headshots/tateFerguson.png';
+import williamCarter from './assets/Headshots/williamCarter.png';
+import willWebb from './assets/Headshots/willWebb.png';
 import { AnimatedTimeline } from './components/AnimatedTimeline';
 import { DecennialHeroImage } from './components/DecennialHeroImage';
 import GlobalReachSection from './components/GlobalReachSection';
@@ -185,42 +216,344 @@ function App() {
 
       {/* Leadership Team */}
       <section id="team">
+        {/* Decennial Group */}
         <Team
-          title="Leadership Team"
-          subtitle="World-class expertise across energy infrastructure, real estate development, and capital markets"
+          title="Decennial Group"
+          subtitle="Multi-strategy investment management and development leadership"
           cols={4}
           variant="cards"
-          showSocial={false}
+          showSocial={true}
+          showBio={true}
           textColor='text-white'
           cardBgColor='bg-[var(--decennial-primary)]'
+          nameColor='!text-white'
+          roleColor='text-[var(--decennial-secondary)]'
+          bioColor='text-white'
+          socialBgColor='bg-white/10'
+          socialTextColor='text-[var(--decennial-secondary)]'
+          socialHoverBgColor='hover:bg-[var(--decennial-secondary)]'
+          socialHoverTextColor='hover:text-[var(--decennial-primary)]'
           members={[
             {
-              name: 'Dave Pavlik',
+              name: 'Adam Pleasant',
+              role: 'AI Chief',
+              bio: 'Drives AI strategy and automation across enterprise operations, building intelligent systems for infrastructure firms.',
+              avatar: adamPleasant,
+              social: { linkedin: 'https://www.linkedin.com/in/adampleasant/' },
+            },
+            {
+              name: 'AJ Krappman',
+              role: 'Associate, Marketing',
+              bio: 'Supports brand development and marketing initiatives, creating compelling narratives for infrastructure investment audiences.',
+              avatar: ajKrappman,
+              social: { linkedin: 'https://www.linkedin.com/in/aj-krappman/' },
+            },
+            {
+              name: 'Angela Duncan',
+              role: 'Controller',
+              bio: 'Oversees financial reporting and accounting operations, ensuring accuracy across complex investment fund structures.',
+              avatar: angelaDuncan,
+              social: { linkedin: 'https://www.linkedin.com/in/angela-duncan-cpa/' },
+            },
+            {
+              name: 'Audrey Simpson',
+              role: 'Vice President, Asset Management',
+              bio: 'Leads asset management strategy maximizing portfolio value across digital infrastructure and real estate investments.',
+              avatar: audreySimpson,
+              social: { linkedin: 'https://www.linkedin.com/in/audrey-simpson/' },
+            },
+            {
+              name: 'David Pavlik',
               role: 'Managing Partner & Co-Founder',
               bio: '15+ years energy infrastructure experience. Structured over $2.0B in renewable energy and infrastructure projects.',
               avatar: DavidPavlik,
-              social: { linkedin: '#' },
+              social: { linkedin: 'https://www.linkedin.com/in/david-pavlik/' },
+            },
+            {
+              name: 'Elizabeth Carter',
+              role: 'Intern',
+              bio: 'Supports operational and research initiatives, gaining hands-on experience in infrastructure investment management.',
+              avatar: elizabethCarter,
+              social: { linkedin: 'https://www.linkedin.com/in/elizabeth-carter/' },
+            },
+            {
+              name: 'Joe Kreeger',
+              role: 'Partner, Operations & General Counsel',
+              bio: 'Manages legal operations and corporate governance, bringing extensive counsel experience to infrastructure transactions.',
+              avatar: joeKreeger,
+              social: { linkedin: 'https://www.linkedin.com/in/joe-kreeger/' },
+            },
+            {
+              name: 'John Kellam',
+              role: 'Intern',
+              bio: 'Contributes to deal analysis and project research, developing expertise in critical infrastructure development.',
+              avatar: johnKellam,
+              social: { linkedin: 'https://www.linkedin.com/in/john-kellam/' },
             },
             {
               name: 'John Krappman',
               role: 'Managing Partner & Co-Founder',
               bio: '35+ years real estate investment and development experience. Successfully developed over $2B of commercial real estate.',
               avatar: JohnKrappman,
-              social: { linkedin: '#' },
+              social: { linkedin: 'https://www.linkedin.com/in/john-krappman/' },
+            },
+            {
+              name: 'Kevin Kennedy',
+              role: 'Project Lead, Project 3Gigs',
+              bio: 'Leads the 3Gigs data center development initiative, coordinating multi-disciplinary teams for mission-critical delivery.',
+              avatar: kevinKennedy,
+              social: { linkedin: 'https://www.linkedin.com/in/kevin-kennedy/' },
+            },
+            {
+              name: 'Kosta Hontos',
+              role: 'Director of Information Technology',
+              bio: 'Directs IT infrastructure and cybersecurity strategy, enabling secure digital operations across the enterprise.',
+              avatar: kostaHontos,
+              social: { linkedin: 'https://www.linkedin.com/in/kosta-hontos/' },
+            },
+            {
+              name: 'Malcolm Weems',
+              role: 'Partner, Community Involvement',
+              bio: 'Leads community engagement and stakeholder relations, building partnerships that strengthen infrastructure project outcomes.',
+              avatar: malcolmWeems,
+              social: { linkedin: 'https://www.linkedin.com/in/malcolm-weems/' },
+            },
+            {
+              name: 'Mark Pruitt',
+              role: 'Partner, Energy',
+              bio: 'Drives energy strategy and power procurement, leveraging deep utility industry relationships for competitive advantage.',
+              avatar: markPruitt,
+              social: { linkedin: 'https://www.linkedin.com/in/mark-pruitt/' },
+            },
+            {
+              name: 'Owen McCarthy',
+              role: 'Partner, Investment Strategy',
+              bio: 'Shapes investment thesis and portfolio construction, identifying high-conviction opportunities in digital infrastructure.',
+              avatar: owenMcCarthy,
+              social: { linkedin: 'https://www.linkedin.com/in/owen-mccarthy/' },
             },
             {
               name: 'Paul Rambo',
-              role: 'Partner, Project Delivery',
-              bio: '10+ years data center industry experience. Former Critical Facilities Manager at T5 Data Centers and Senior Engineer at Equinix.',
+              role: 'Partner, Delivery',
+              bio: '10+ years data center industry experience. Former Critical Facilities Manager at T5 Data Centers and Equinix.',
               avatar: PaulRambo,
-              social: { linkedin: '#' },
+              social: { linkedin: 'https://www.linkedin.com/in/paul-rambo/' },
             },
             {
-              name: 'Zachary Peña',
-              role: 'CEO, Empirix Partners',
-              bio: '12+ years supply chain experience. Former Senior Director at NTT Global Data Centers and Construction Supply Chain Manager at Microsoft.',
+              name: 'Scott Goodman',
+              role: 'Co-Founder & Advisor',
+              bio: 'Provides strategic guidance as co-founder, bringing decades of entrepreneurial and investment advisory experience.',
+              avatar: scottGoodman,
+              social: { linkedin: 'https://www.linkedin.com/in/scott-goodman/' },
+            },
+            {
+              name: 'William Carter',
+              role: 'Intern',
+              bio: 'Assists with financial modeling and due diligence, building foundational skills in infrastructure investment analysis.',
+              avatar: williamCarter,
+              social: { linkedin: 'https://www.linkedin.com/in/william-carter/' },
+            },
+          ]}
+        />
+
+        {/* Empirix Partners */}
+        <Team
+          title="Empirix Partners"
+          subtitle="Mission-critical supply chain solutions for digital infrastructure"
+          cols={4}
+          variant="cards"
+          showSocial={true}
+          showBio={true}
+          bgColor='bg-[#F7FBFF]'
+          textColor='text-[#013823]'
+          cardBgColor='bg-[#013823]'
+          nameColor='!text-[#F7FBFF]'
+          roleColor='text-[#94d4b6]'
+          bioColor='text-[#D3D3D3]'
+          socialBgColor='bg-white/10'
+          socialTextColor='text-[#94d4b6]'
+          socialHoverBgColor='hover:bg-[#94d4b6]'
+          socialHoverTextColor='hover:text-[#013823]'
+          avatarRingColor='bg-[#94d4b6]'
+          members={[
+            {
+              name: 'Carter Barczak',
+              role: 'Associate',
+              bio: 'Supports procurement operations and vendor management for mission-critical data center supply chain programs.',
+              avatar: carterBarczak,
+              social: { linkedin: 'https://www.linkedin.com/in/carter-barczak/' },
+            },
+            {
+              name: 'Chase Cook',
+              role: 'Vice President',
+              bio: 'Leads strategic sourcing and client engagements, delivering cost-effective supply chain solutions for data centers.',
+              avatar: chaseCook,
+              social: { linkedin: 'https://www.linkedin.com/in/chase-cook/' },
+            },
+            {
+              name: 'Ethan Summers',
+              role: 'Chief of Staff - Empirix Partners & Perpetual Grid',
+              bio: 'Drives cross-functional operations for both Empirix and Perpetual Grid, aligning strategy with tactical execution.',
+              avatar: ethanSummers,
+              social: { linkedin: 'https://www.linkedin.com/in/ethan-summers/' },
+            },
+            {
+              name: 'Luke Lyons',
+              role: 'Senior Analyst',
+              bio: 'Performs data-driven supply chain analysis and market research supporting strategic procurement decisions at scale.',
+              avatar: lukeLyons,
+              social: { linkedin: 'https://www.linkedin.com/in/luke-lyons/' },
+            },
+            {
+              name: 'Nate Dziwulski',
+              role: 'Senior Analyst',
+              bio: 'Analyzes supply chain data and vendor performance metrics, enabling informed sourcing decisions for infrastructure.',
+              avatar: nateDziwulski,
+              social: { linkedin: 'https://www.linkedin.com/in/nate-dziwulski/' },
+            },
+            {
+              name: 'Rebecca Rose',
+              role: 'Manager',
+              bio: 'Manages procurement workflows and team operations, ensuring seamless delivery of critical supply chain services.',
+              avatar: rebeccaRose,
+              social: { linkedin: 'https://www.linkedin.com/in/rebecca-rose/' },
+            },
+            {
+              name: 'Rob Cumbelich',
+              role: 'Senior Associate',
+              bio: 'Executes strategic sourcing initiatives and vendor negotiations for large-scale data center construction projects.',
+              avatar: robCumbelich,
+              social: { linkedin: 'https://www.linkedin.com/in/rob-cumbelich/' },
+            },
+            {
+              name: 'Scott Hagood',
+              role: 'Senior Vice President',
+              bio: 'Oversees enterprise client relationships and business development, expanding Empirix supply chain service offerings.',
+              avatar: scottHagood,
+              social: { linkedin: 'https://www.linkedin.com/in/scott-hagood/' },
+            },
+            {
+              name: 'Tate Ferguson',
+              role: 'Associate',
+              bio: 'Supports procurement analysis and operational projects, contributing to supply chain optimization across client programs.',
+              avatar: tateFerguson,
+              social: { linkedin: 'https://www.linkedin.com/in/tate-ferguson/' },
+            },
+            {
+              name: 'Zachary Pena',
+              role: 'CEO - Empirix Partners & Perpetual Grid',
+              bio: '12+ years supply chain experience. Former Senior Director at NTT and Construction Supply Chain Manager at Microsoft.',
               avatar: ZachPena,
-              social: { linkedin: '#' },
+              social: { linkedin: 'https://www.linkedin.com/in/zachary-pena/' },
+            },
+          ]}
+        />
+
+        {/* Perpetual Grid */}
+        <Team
+          title="Perpetual Grid"
+          subtitle="Energy infrastructure and utility solutions for data centers"
+          cols={4}
+          variant="cards"
+          showSocial={true}
+          showBio={true}
+          bgColor='bg-[#F8F8F8]'
+          textColor='text-[#1F035B]'
+          cardBgColor='bg-[#1F035B]'
+          nameColor='!text-white'
+          roleColor='text-[#9883E5]'
+          bioColor='text-gray-300'
+          socialBgColor='bg-white/10'
+          socialTextColor='text-[#9883E5]'
+          socialHoverBgColor='hover:bg-[#9883E5]'
+          socialHoverTextColor='hover:text-[#1F035B]'
+          avatarRingColor='bg-[#9883E5]'
+          members={[
+            {
+              name: 'Kaitlyn Leahy',
+              role: 'Associate',
+              bio: 'Supports energy procurement and regulatory analysis, helping navigate complex utility landscapes for infrastructure.',
+              avatar: kaitlynLeahy,
+              social: { linkedin: 'https://www.linkedin.com/in/kaitlyn-leahy/' },
+            },
+            {
+              name: 'Will Webb',
+              role: 'Vice President',
+              bio: 'Leads power procurement strategy and utility negotiations, securing competitive energy solutions for data centers.',
+              avatar: willWebb,
+              social: { linkedin: 'https://www.linkedin.com/in/will-webb/' },
+            },
+          ]}
+        />
+
+        {/* DX Management */}
+        <Team
+          title="DX Management"
+          subtitle="Digital infrastructure management services"
+          cols={4}
+          variant="cards"
+          showSocial={true}
+          showBio={true}
+          textColor='text-white'
+          cardBgColor='bg-[var(--decennial-primary)]'
+          nameColor='!text-white'
+          roleColor='text-[var(--decennial-secondary)]'
+          bioColor='text-white'
+          socialBgColor='bg-white/10'
+          socialTextColor='text-[var(--decennial-secondary)]'
+          socialHoverBgColor='hover:bg-[var(--decennial-secondary)]'
+          socialHoverTextColor='hover:text-[var(--decennial-primary)]'
+          members={[
+            {
+              name: 'Angela Arriaga',
+              role: 'Associate, Finance',
+              bio: 'Manages financial operations and reporting for DX Management, supporting infrastructure asset performance tracking.',
+              avatar: angelaArriaga,
+              social: { linkedin: 'https://www.linkedin.com/in/angela-arriaga/' },
+            },
+          ]}
+        />
+
+        {/* Trillium */}
+        <Team
+          title="Trillium"
+          subtitle="Strategic capital advisory and principal investment"
+          cols={4}
+          variant="cards"
+          showSocial={true}
+          showBio={true}
+          bgColor='bg-[#f0f4f8]'
+          textColor='text-[#2a3d5c]'
+          cardBgColor='bg-[#2a3d5c]'
+          nameColor='!text-white'
+          roleColor='text-[#4eace9]'
+          bioColor='text-gray-300'
+          socialBgColor='bg-white/10'
+          socialTextColor='text-[#4eace9]'
+          socialHoverBgColor='hover:bg-[#4eace9]'
+          socialHoverTextColor='hover:text-[#2a3d5c]'
+          avatarRingColor='bg-[#4eace9]'
+          members={[
+            {
+              name: 'Ben Kroll',
+              role: 'Partner',
+              bio: 'Leads principal investments and strategic advisory engagements, structuring capital solutions for infrastructure assets.',
+              avatar: benKroll,
+              social: { linkedin: 'https://www.linkedin.com/in/ben-kroll/' },
+            },
+            {
+              name: 'Drew Workheiser',
+              role: 'Principal',
+              bio: 'Drives deal origination and execution, sourcing high-conviction investment opportunities in digital infrastructure.',
+              avatar: drewWorkheiser,
+              social: { linkedin: 'https://www.linkedin.com/in/drew-workheiser/' },
+            },
+            {
+              name: 'Matt Powers',
+              role: 'Associate',
+              bio: 'Supports financial analysis and transaction diligence, contributing to underwriting across Trillium investment mandates.',
+              avatar: mattPowers,
+              social: { linkedin: 'https://www.linkedin.com/in/matt-powers/' },
             },
           ]}
         />
