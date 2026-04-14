@@ -251,7 +251,7 @@ export function Team({
         rounded={cardRounded}
         padding="lg"
         hoverEffect
-        className="text-center"
+        className="text-center h-full flex flex-col"
       >
         <div className="flex justify-center mb-4">
           <Avatar name={member.name} image={member.avatar} />
@@ -268,12 +268,12 @@ export function Team({
           {member.role}
         </Text>
         {showBio && member.bio && (
-          <Text textAlign="center" textColor={mBioColor} fontSize="sm">
+          <Text textAlign="center" textColor={mBioColor} fontSize="sm" className="flex-1">
             {member.bio}
           </Text>
         )}
         {showSocial && member.social && (
-          <div className="flex justify-center gap-2 mt-4">
+          <div className="flex justify-center gap-2 mt-4 pt-2">
             {Object.entries(member.social).map(([platform, href]) => (
               <SocialIcon
                 key={platform}
