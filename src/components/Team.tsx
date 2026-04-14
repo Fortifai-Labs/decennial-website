@@ -17,10 +17,20 @@ interface SocialLinks {
 
 interface TeamMember {
   name: string;
+  company?: string;
   role: string;
   bio?: string;
   avatar?: string;
   social?: SocialLinks;
+  cardBgColor?: string;
+  nameColor?: string;
+  companyColor?: string;
+  roleColor?: string;
+  bioColor?: string;
+  socialBgColor?: string;
+  socialTextColor?: string;
+  socialHoverBgColor?: string;
+  socialHoverTextColor?: string;
 }
 
 interface TeamProps {
@@ -50,41 +60,15 @@ interface TeamProps {
   avatarRingColor?: string;
 }
 
-const defaultMembers: TeamMember[] = [
-  {
-    name: 'Jane Smith',
-    role: 'CEO & Founder',
-    bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.',
-    social: { twitter: '#', linkedin: '#', github: '#' },
-  },
-  {
-    name: 'John Doe',
-    role: 'CTO',
-    bio: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.',
-    social: { twitter: '#', linkedin: '#', github: '#' },
-  },
-  {
-    name: 'Sarah Johnson',
-    role: 'Head of Design',
-    bio: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.',
-    social: { twitter: '#', linkedin: '#' },
-  },
-  {
-    name: 'Mike Wilson',
-    role: 'Lead Engineer',
-    bio: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.',
-    social: { twitter: '#', github: '#' },
-  },
-];
+const defaultMembers: TeamMember[] = [];
 
 interface AvatarProps {
   name: string;
   image?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
-  ringColor?: string;
 }
 
-function Avatar({ name, image, size = 'lg', ringColor }: AvatarProps) {
+function Avatar({ name, image, size = 'lg' }: AvatarProps) {
   const sizes = {
     sm: 'w-12 h-12 text-lg',
     md: 'w-16 h-16 text-xl',
@@ -112,7 +96,7 @@ function Avatar({ name, image, size = 'lg', ringColor }: AvatarProps) {
 
   if (image) {
     return (
-      <div className={clsx('rounded-full', ringColor || 'bg-[var(--decennial-secondary)]')}>
+      <div className="rounded-full bg-white p-0.5">
         <img
           src={image}
           alt={name}
@@ -196,9 +180,19 @@ export function Team({
   socialTextColor,
   socialHoverBgColor,
   socialHoverTextColor,
-  avatarRingColor,
 }: TeamProps) {
   const renderMember = (member: TeamMember, index: number) => {
+    // Per-member colors override section-level colors
+    const mCardBg = member.cardBgColor || cardBgColor;
+    const mNameColor = member.nameColor || nameColor;
+    const mCompanyColor = member.companyColor || member.roleColor || roleColor;
+    const mRoleColor = member.roleColor || roleColor;
+    const mBioColor = member.bioColor || bioColor;
+    const mSocialBg = member.socialBgColor || socialBgColor;
+    const mSocialText = member.socialTextColor || socialTextColor;
+    const mSocialHoverBg = member.socialHoverBgColor || socialHoverBgColor;
+    const mSocialHoverText = member.socialHoverTextColor || socialHoverTextColor;
+
     if (variant === 'simple') {
       return (
         <div key={index} className="text-center">
@@ -208,7 +202,12 @@ export function Team({
           <Heading as="h3" fontSize="xl" fontWeight="semibold" textAlign="center" className="mb-1">
             {member.name}
           </Heading>
-          <Text textAlign="center" textColor="text-[var(--decennial-secondary)]" fontSize="sm" className="mb-3">
+          {member.company && (
+            <Text textAlign="center" textColor={mCompanyColor} fontSize="xs" fontWeight="semibold" className="mb-1 uppercase tracking-wider">
+              {member.company}
+            </Text>
+          )}
+          <Text textAlign="center" textColor={mRoleColor} fontSize="sm" className="mb-3">
             {member.role}
           </Text>
           {showBio && member.bio && (
@@ -247,7 +246,7 @@ export function Team({
     return (
       <Card
         key={index}
-        bgColor={cardBgColor}
+        bgColor={mCardBg}
         shadow={cardShadow}
         rounded={cardRounded}
         padding="lg"
@@ -255,16 +254,21 @@ export function Team({
         className="text-center"
       >
         <div className="flex justify-center mb-4">
-          <Avatar name={member.name} image={member.avatar} ringColor={avatarRingColor} />
+          <Avatar name={member.name} image={member.avatar} />
         </div>
-        <Heading as="h3" fontSize="xl" fontWeight="semibold" textAlign="center" className={clsx('mb-1', nameColor)}>
+        <Heading as="h3" fontSize="xl" fontWeight="semibold" textAlign="center" className={clsx('mb-1', mNameColor)}>
           {member.name}
         </Heading>
-        <Text textAlign="center" textColor={roleColor} fontSize="sm" fontWeight="medium" className="mb-3">
+        {member.company && (
+          <Text textAlign="center" textColor={mCompanyColor} fontSize="xs" fontWeight="semibold" className="mb-1 uppercase tracking-wider">
+            {member.company}
+          </Text>
+        )}
+        <Text textAlign="center" textColor={mRoleColor} fontSize="sm" fontWeight="medium" className="mb-3">
           {member.role}
         </Text>
         {showBio && member.bio && (
-          <Text textAlign="center" textColor={bioColor} fontSize="sm">
+          <Text textAlign="center" textColor={mBioColor} fontSize="sm">
             {member.bio}
           </Text>
         )}
@@ -275,10 +279,10 @@ export function Team({
                 key={platform}
                 platform={platform}
                 href={href}
-                bgColor={socialBgColor}
-                textColor={socialTextColor}
-                hoverBgColor={socialHoverBgColor}
-                hoverTextColor={socialHoverTextColor}
+                bgColor={mSocialBg}
+                textColor={mSocialText}
+                hoverBgColor={mSocialHoverBg}
+                hoverTextColor={mSocialHoverText}
               />
             ))}
           </div>

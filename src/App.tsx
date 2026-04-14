@@ -214,12 +214,11 @@ function App() {
         <GlobalReachSection />
       </section>
 
-      {/* Leadership Team */}
+      {/* Team */}
       <section id="team">
-        {/* Decennial Group */}
         <Team
           title="Decennial Group"
-          subtitle="Multi-strategy investment management and development leadership"
+          subtitle="World-class expertise across energy infrastructure, real estate development, and capital markets"
           cols={4}
           variant="cards"
           showSocial={true}
@@ -229,291 +228,555 @@ function App() {
           nameColor='!text-white'
           roleColor='text-[var(--decennial-secondary)]'
           bioColor='text-white'
-          socialBgColor='bg-white/10'
-          socialTextColor='text-[var(--decennial-secondary)]'
-          socialHoverBgColor='hover:bg-[var(--decennial-secondary)]'
-          socialHoverTextColor='hover:text-[var(--decennial-primary)]'
           members={[
-            {
-              name: 'Adam Pleasant',
-              role: 'AI Chief',
-              bio: 'Drives AI strategy and automation across enterprise operations, building intelligent systems for infrastructure firms.',
-              avatar: adamPleasant,
-              social: { linkedin: 'https://www.linkedin.com/in/adampleasant/' },
-            },
-            {
-              name: 'AJ Krappman',
-              role: 'Associate, Marketing',
-              bio: 'Supports brand development and marketing initiatives, creating compelling narratives for infrastructure investment audiences.',
-              avatar: ajKrappman,
-              social: { linkedin: 'https://www.linkedin.com/in/aj-krappman/' },
-            },
-            {
-              name: 'Angela Duncan',
-              role: 'Controller',
-              bio: 'Oversees financial reporting and accounting operations, ensuring accuracy across complex investment fund structures.',
-              avatar: angelaDuncan,
-              social: { linkedin: 'https://www.linkedin.com/in/angela-duncan-cpa/' },
-            },
-            {
-              name: 'Audrey Simpson',
-              role: 'Vice President, Asset Management',
-              bio: 'Leads asset management strategy maximizing portfolio value across digital infrastructure and real estate investments.',
-              avatar: audreySimpson,
-              social: { linkedin: 'https://www.linkedin.com/in/audrey-simpson/' },
-            },
-            {
-              name: 'David Pavlik',
-              role: 'Managing Partner & Co-Founder',
-              bio: '15+ years energy infrastructure experience. Structured over $2.0B in renewable energy and infrastructure projects.',
-              avatar: DavidPavlik,
-              social: { linkedin: 'https://www.linkedin.com/in/david-pavlik/' },
-            },
-            {
-              name: 'Elizabeth Carter',
-              role: 'Intern',
-              bio: 'Supports operational and research initiatives, gaining hands-on experience in infrastructure investment management.',
-              avatar: elizabethCarter,
-              social: { linkedin: 'https://www.linkedin.com/in/elizabeth-carter/' },
-            },
-            {
-              name: 'Joe Kreeger',
-              role: 'Partner, Operations & General Counsel',
-              bio: 'Manages legal operations and corporate governance, bringing extensive counsel experience to infrastructure transactions.',
-              avatar: joeKreeger,
-              social: { linkedin: 'https://www.linkedin.com/in/joe-kreeger/' },
-            },
-            {
-              name: 'John Kellam',
-              role: 'Intern',
-              bio: 'Contributes to deal analysis and project research, developing expertise in critical infrastructure development.',
-              avatar: johnKellam,
-              social: { linkedin: 'https://www.linkedin.com/in/john-kellam/' },
-            },
-            {
-              name: 'John Krappman',
-              role: 'Managing Partner & Co-Founder',
-              bio: '35+ years real estate investment and development experience. Successfully developed over $2B of commercial real estate.',
-              avatar: JohnKrappman,
-              social: { linkedin: 'https://www.linkedin.com/in/john-krappman/' },
-            },
-            {
-              name: 'Kevin Kennedy',
-              role: 'Project Lead, Project 3Gigs',
-              bio: 'Leads the 3Gigs data center development initiative, coordinating multi-disciplinary teams for mission-critical delivery.',
-              avatar: kevinKennedy,
-              social: { linkedin: 'https://www.linkedin.com/in/kevin-kennedy/' },
-            },
-            {
-              name: 'Kosta Hontos',
-              role: 'Director of Information Technology',
-              bio: 'Directs IT infrastructure and cybersecurity strategy, enabling secure digital operations across the enterprise.',
-              avatar: kostaHontos,
-              social: { linkedin: 'https://www.linkedin.com/in/kosta-hontos/' },
-            },
-            {
-              name: 'Malcolm Weems',
-              role: 'Partner, Community Involvement',
-              bio: 'Leads community engagement and stakeholder relations, building partnerships that strengthen infrastructure project outcomes.',
-              avatar: malcolmWeems,
-              social: { linkedin: 'https://www.linkedin.com/in/malcolm-weems/' },
-            },
-            {
-              name: 'Mark Pruitt',
-              role: 'Partner, Energy',
-              bio: 'Drives energy strategy and power procurement, leveraging deep utility industry relationships for competitive advantage.',
-              avatar: markPruitt,
-              social: { linkedin: 'https://www.linkedin.com/in/mark-pruitt/' },
-            },
-            {
-              name: 'Owen McCarthy',
-              role: 'Partner, Investment Strategy',
-              bio: 'Shapes investment thesis and portfolio construction, identifying high-conviction opportunities in digital infrastructure.',
-              avatar: owenMcCarthy,
-              social: { linkedin: 'https://www.linkedin.com/in/owen-mccarthy/' },
-            },
-            {
-              name: 'Paul Rambo',
-              role: 'Partner, Delivery',
-              bio: '10+ years data center industry experience. Former Critical Facilities Manager at T5 Data Centers and Equinix.',
-              avatar: PaulRambo,
-              social: { linkedin: 'https://www.linkedin.com/in/paul-rambo/' },
-            },
-            {
-              name: 'Scott Goodman',
-              role: 'Co-Founder & Advisor',
-              bio: 'Provides strategic guidance as co-founder, bringing decades of entrepreneurial and investment advisory experience.',
-              avatar: scottGoodman,
-              social: { linkedin: 'https://www.linkedin.com/in/scott-goodman/' },
-            },
-            {
-              name: 'William Carter',
-              role: 'Intern',
-              bio: 'Assists with financial modeling and due diligence, building foundational skills in infrastructure investment analysis.',
-              avatar: williamCarter,
-              social: { linkedin: 'https://www.linkedin.com/in/william-carter/' },
-            },
-          ]}
-        />
+            // Sorted alphabetically by last name
+            // Decennial colors: bg #312439, name white, company/role #ebbe07, bio white
+            // Empirix colors:   bg #013823, name #F7FBFF, company/role #94d4b6, bio #D3D3D3
+            // Perpetual Grid:   bg #1F035B, name white, company/role #9883E5, bio gray-300
+            // DX Management:    bg #312439, same as Decennial
 
-        {/* Empirix Partners */}
-        <Team
-          title="Empirix Partners"
-          subtitle="Mission-critical supply chain solutions for digital infrastructure"
-          cols={4}
-          variant="cards"
-          showSocial={true}
-          showBio={true}
-          bgColor='bg-[#F7FBFF]'
-          textColor='text-[#013823]'
-          cardBgColor='bg-[#013823]'
-          nameColor='!text-[#F7FBFF]'
-          roleColor='text-[#94d4b6]'
-          bioColor='text-[#D3D3D3]'
-          socialBgColor='bg-white/10'
-          socialTextColor='text-[#94d4b6]'
-          socialHoverBgColor='hover:bg-[#94d4b6]'
-          socialHoverTextColor='hover:text-[#013823]'
-          avatarRingColor='bg-[#94d4b6]'
-          members={[
-            {
-              name: 'Carter Barczak',
-              role: 'Associate',
-              bio: 'Supports procurement operations and vendor management for mission-critical data center supply chain programs.',
-              avatar: carterBarczak,
-              social: { linkedin: 'https://www.linkedin.com/in/carter-barczak/' },
-            },
-            {
-              name: 'Chase Cook',
-              role: 'Vice President',
-              bio: 'Leads strategic sourcing and client engagements, delivering cost-effective supply chain solutions for data centers.',
-              avatar: chaseCook,
-              social: { linkedin: 'https://www.linkedin.com/in/chase-cook/' },
-            },
-            {
-              name: 'Ethan Summers',
-              role: 'Chief of Staff - Empirix Partners & Perpetual Grid',
-              bio: 'Drives cross-functional operations for both Empirix and Perpetual Grid, aligning strategy with tactical execution.',
-              avatar: ethanSummers,
-              social: { linkedin: 'https://www.linkedin.com/in/ethan-summers/' },
-            },
-            {
-              name: 'Luke Lyons',
-              role: 'Senior Analyst',
-              bio: 'Performs data-driven supply chain analysis and market research supporting strategic procurement decisions at scale.',
-              avatar: lukeLyons,
-              social: { linkedin: 'https://www.linkedin.com/in/luke-lyons/' },
-            },
-            {
-              name: 'Nate Dziwulski',
-              role: 'Senior Analyst',
-              bio: 'Analyzes supply chain data and vendor performance metrics, enabling informed sourcing decisions for infrastructure.',
-              avatar: nateDziwulski,
-              social: { linkedin: 'https://www.linkedin.com/in/nate-dziwulski/' },
-            },
-            {
-              name: 'Rebecca Rose',
-              role: 'Manager',
-              bio: 'Manages procurement workflows and team operations, ensuring seamless delivery of critical supply chain services.',
-              avatar: rebeccaRose,
-              social: { linkedin: 'https://www.linkedin.com/in/rebecca-rose/' },
-            },
-            {
-              name: 'Rob Cumbelich',
-              role: 'Senior Associate',
-              bio: 'Executes strategic sourcing initiatives and vendor negotiations for large-scale data center construction projects.',
-              avatar: robCumbelich,
-              social: { linkedin: 'https://www.linkedin.com/in/rob-cumbelich/' },
-            },
-            {
-              name: 'Scott Hagood',
-              role: 'Senior Vice President',
-              bio: 'Oversees enterprise client relationships and business development, expanding Empirix supply chain service offerings.',
-              avatar: scottHagood,
-              social: { linkedin: 'https://www.linkedin.com/in/scott-hagood/' },
-            },
-            {
-              name: 'Tate Ferguson',
-              role: 'Associate',
-              bio: 'Supports procurement analysis and operational projects, contributing to supply chain optimization across client programs.',
-              avatar: tateFerguson,
-              social: { linkedin: 'https://www.linkedin.com/in/tate-ferguson/' },
-            },
-            {
-              name: 'Zachary Pena',
-              role: 'CEO - Empirix Partners & Perpetual Grid',
-              bio: '12+ years supply chain experience. Former Senior Director at NTT and Construction Supply Chain Manager at Microsoft.',
-              avatar: ZachPena,
-              social: { linkedin: 'https://www.linkedin.com/in/zachary-pena/' },
-            },
-          ]}
-        />
-
-        {/* Perpetual Grid */}
-        <Team
-          title="Perpetual Grid"
-          subtitle="Energy infrastructure and utility solutions for data centers"
-          cols={4}
-          variant="cards"
-          showSocial={true}
-          showBio={true}
-          bgColor='bg-[#F8F8F8]'
-          textColor='text-[#1F035B]'
-          cardBgColor='bg-[#1F035B]'
-          nameColor='!text-white'
-          roleColor='text-[#9883E5]'
-          bioColor='text-gray-300'
-          socialBgColor='bg-white/10'
-          socialTextColor='text-[#9883E5]'
-          socialHoverBgColor='hover:bg-[#9883E5]'
-          socialHoverTextColor='hover:text-[#1F035B]'
-          avatarRingColor='bg-[#9883E5]'
-          members={[
-            {
-              name: 'Kaitlyn Leahy',
-              role: 'Associate',
-              bio: 'Supports energy procurement and regulatory analysis, helping navigate complex utility landscapes for infrastructure.',
-              avatar: kaitlynLeahy,
-              social: { linkedin: 'https://www.linkedin.com/in/kaitlyn-leahy/' },
-            },
-            {
-              name: 'Will Webb',
-              role: 'Vice President',
-              bio: 'Leads power procurement strategy and utility negotiations, securing competitive energy solutions for data centers.',
-              avatar: willWebb,
-              social: { linkedin: 'https://www.linkedin.com/in/will-webb/' },
-            },
-          ]}
-        />
-
-        {/* DX Management */}
-        <Team
-          title="DX Management"
-          subtitle="Digital infrastructure management services"
-          cols={4}
-          variant="cards"
-          showSocial={true}
-          showBio={true}
-          textColor='text-white'
-          cardBgColor='bg-[var(--decennial-primary)]'
-          nameColor='!text-white'
-          roleColor='text-[var(--decennial-secondary)]'
-          bioColor='text-white'
-          socialBgColor='bg-white/10'
-          socialTextColor='text-[var(--decennial-secondary)]'
-          socialHoverBgColor='hover:bg-[var(--decennial-secondary)]'
-          socialHoverTextColor='hover:text-[var(--decennial-primary)]'
-          members={[
+            // Arriaga — DX Management
             {
               name: 'Angela Arriaga',
+              company: 'DX Management',
               role: 'Associate, Finance',
               bio: 'Manages financial operations and reporting for DX Management, supporting infrastructure asset performance tracking.',
               avatar: angelaArriaga,
               social: { linkedin: 'https://www.linkedin.com/in/angela-arriaga/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Barczak — Empirix
+            {
+              name: 'Carter Barczak',
+              company: 'Empirix Partners',
+              role: 'Associate',
+              bio: 'Supports procurement operations and vendor management for mission-critical data center supply chain programs.',
+              avatar: carterBarczak,
+              social: { linkedin: 'https://www.linkedin.com/in/carter-barczak/' },
+              cardBgColor: 'bg-[#013823]',
+              nameColor: '!text-[#F7FBFF]',
+              companyColor: 'text-[#94d4b6]',
+              roleColor: 'text-[#94d4b6]',
+              bioColor: 'text-[#D3D3D3]',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#94d4b6]',
+              socialHoverBgColor: 'hover:bg-[#94d4b6]',
+              socialHoverTextColor: 'hover:text-[#013823]',
+            },
+            // Carter, Elizabeth — Decennial
+            {
+              name: 'Elizabeth Carter',
+              company: 'Decennial Group',
+              role: 'Intern',
+              bio: 'Supports operational and research initiatives, gaining hands-on experience in infrastructure investment management.',
+              avatar: elizabethCarter,
+              social: { linkedin: 'https://www.linkedin.com/in/elizabeth-carter/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Carter, William — Decennial
+            {
+              name: 'William Carter',
+              company: 'Decennial Group',
+              role: 'Intern',
+              bio: 'Assists with financial modeling and due diligence, building foundational skills in infrastructure investment analysis.',
+              avatar: williamCarter,
+              social: { linkedin: 'https://www.linkedin.com/in/william-carter/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Cook — Empirix
+            {
+              name: 'Chase Cook',
+              company: 'Empirix Partners',
+              role: 'Vice President',
+              bio: 'Leads strategic sourcing and client engagements, delivering cost-effective supply chain solutions for data centers.',
+              avatar: chaseCook,
+              social: { linkedin: 'https://www.linkedin.com/in/chase-cook/' },
+              cardBgColor: 'bg-[#013823]',
+              nameColor: '!text-[#F7FBFF]',
+              companyColor: 'text-[#94d4b6]',
+              roleColor: 'text-[#94d4b6]',
+              bioColor: 'text-[#D3D3D3]',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#94d4b6]',
+              socialHoverBgColor: 'hover:bg-[#94d4b6]',
+              socialHoverTextColor: 'hover:text-[#013823]',
+            },
+            // Cumbelich — Empirix
+            {
+              name: 'Rob Cumbelich',
+              company: 'Empirix Partners',
+              role: 'Senior Associate',
+              bio: 'Executes strategic sourcing initiatives and vendor negotiations for large-scale data center construction projects.',
+              avatar: robCumbelich,
+              social: { linkedin: 'https://www.linkedin.com/in/rob-cumbelich/' },
+              cardBgColor: 'bg-[#013823]',
+              nameColor: '!text-[#F7FBFF]',
+              companyColor: 'text-[#94d4b6]',
+              roleColor: 'text-[#94d4b6]',
+              bioColor: 'text-[#D3D3D3]',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#94d4b6]',
+              socialHoverBgColor: 'hover:bg-[#94d4b6]',
+              socialHoverTextColor: 'hover:text-[#013823]',
+            },
+            // Duncan — Decennial
+            {
+              name: 'Angela Duncan',
+              company: 'Decennial Group',
+              role: 'Controller',
+              bio: 'Oversees financial reporting and accounting operations, ensuring accuracy across complex investment fund structures.',
+              avatar: angelaDuncan,
+              social: { linkedin: 'https://www.linkedin.com/in/angela-duncan-cpa/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Dziwulski — Empirix
+            {
+              name: 'Nate Dziwulski',
+              company: 'Empirix Partners',
+              role: 'Senior Analyst',
+              bio: 'Analyzes supply chain data and vendor performance metrics, enabling informed sourcing decisions for infrastructure.',
+              avatar: nateDziwulski,
+              social: { linkedin: 'https://www.linkedin.com/in/nate-dziwulski/' },
+              cardBgColor: 'bg-[#013823]',
+              nameColor: '!text-[#F7FBFF]',
+              companyColor: 'text-[#94d4b6]',
+              roleColor: 'text-[#94d4b6]',
+              bioColor: 'text-[#D3D3D3]',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#94d4b6]',
+              socialHoverBgColor: 'hover:bg-[#94d4b6]',
+              socialHoverTextColor: 'hover:text-[#013823]',
+            },
+            // Ferguson — Empirix
+            {
+              name: 'Tate Ferguson',
+              company: 'Empirix Partners',
+              role: 'Associate',
+              bio: 'Supports procurement analysis and operational projects, contributing to supply chain optimization across client programs.',
+              avatar: tateFerguson,
+              social: { linkedin: 'https://www.linkedin.com/in/tate-ferguson/' },
+              cardBgColor: 'bg-[#013823]',
+              nameColor: '!text-[#F7FBFF]',
+              companyColor: 'text-[#94d4b6]',
+              roleColor: 'text-[#94d4b6]',
+              bioColor: 'text-[#D3D3D3]',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#94d4b6]',
+              socialHoverBgColor: 'hover:bg-[#94d4b6]',
+              socialHoverTextColor: 'hover:text-[#013823]',
+            },
+            // Goodman — Decennial
+            {
+              name: 'Scott Goodman',
+              company: 'Decennial Group',
+              role: 'Co-Founder & Advisor',
+              bio: 'Provides strategic guidance as co-founder, bringing decades of entrepreneurial and investment advisory experience.',
+              avatar: scottGoodman,
+              social: { linkedin: 'https://www.linkedin.com/in/scott-goodman/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Hagood — Empirix
+            {
+              name: 'Scott Hagood',
+              company: 'Empirix Partners',
+              role: 'Senior Vice President',
+              bio: 'Oversees enterprise client relationships and business development, expanding Empirix supply chain service offerings.',
+              avatar: scottHagood,
+              social: { linkedin: 'https://www.linkedin.com/in/scott-hagood/' },
+              cardBgColor: 'bg-[#013823]',
+              nameColor: '!text-[#F7FBFF]',
+              companyColor: 'text-[#94d4b6]',
+              roleColor: 'text-[#94d4b6]',
+              bioColor: 'text-[#D3D3D3]',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#94d4b6]',
+              socialHoverBgColor: 'hover:bg-[#94d4b6]',
+              socialHoverTextColor: 'hover:text-[#013823]',
+            },
+            // Hontos — Decennial
+            {
+              name: 'Kosta Hontos',
+              company: 'Decennial Group',
+              role: 'Director of Information Technology',
+              bio: 'Directs IT infrastructure and cybersecurity strategy, enabling secure digital operations across the enterprise.',
+              avatar: kostaHontos,
+              social: { linkedin: 'https://www.linkedin.com/in/kosta-hontos/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Kellam — Decennial
+            {
+              name: 'John Kellam',
+              company: 'Decennial Group',
+              role: 'Intern',
+              bio: 'Contributes to deal analysis and project research, developing expertise in critical infrastructure development.',
+              avatar: johnKellam,
+              social: { linkedin: 'https://www.linkedin.com/in/john-kellam/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Kennedy — Decennial
+            {
+              name: 'Kevin Kennedy',
+              company: 'Decennial Group',
+              role: 'Project Lead, Project 3Gigs',
+              bio: 'Leads the 3Gigs data center development initiative, coordinating multi-disciplinary teams for mission-critical delivery.',
+              avatar: kevinKennedy,
+              social: { linkedin: 'https://www.linkedin.com/in/kevin-kennedy/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Krappman, AJ — Decennial
+            {
+              name: 'AJ Krappman',
+              company: 'Decennial Group',
+              role: 'Associate, Marketing',
+              bio: 'Supports brand development and marketing initiatives, creating compelling narratives for infrastructure investment audiences.',
+              avatar: ajKrappman,
+              social: { linkedin: 'https://www.linkedin.com/in/aj-krappman/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Krappman, John — Decennial
+            {
+              name: 'John Krappman',
+              company: 'Decennial Group',
+              role: 'Managing Partner & Co-Founder',
+              bio: '35+ years real estate investment and development experience. Successfully developed over $2B of commercial real estate.',
+              avatar: JohnKrappman,
+              social: { linkedin: 'https://www.linkedin.com/in/john-krappman/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Kreeger — Decennial
+            {
+              name: 'Joe Kreeger',
+              company: 'Decennial Group',
+              role: 'Partner, Operations & General Counsel',
+              bio: 'Manages legal operations and corporate governance, bringing extensive counsel experience to infrastructure transactions.',
+              avatar: joeKreeger,
+              social: { linkedin: 'https://www.linkedin.com/in/joe-kreeger/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Leahy — Perpetual Grid
+            {
+              name: 'Kaitlyn Leahy',
+              company: 'Perpetual Grid',
+              role: 'Associate',
+              bio: 'Supports energy procurement and regulatory analysis, helping navigate complex utility landscapes for infrastructure.',
+              avatar: kaitlynLeahy,
+              social: { linkedin: 'https://www.linkedin.com/in/kaitlyn-leahy/' },
+              cardBgColor: 'bg-[#1F035B]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#9883E5]',
+              roleColor: 'text-[#9883E5]',
+              bioColor: 'text-gray-300',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#9883E5]',
+              socialHoverBgColor: 'hover:bg-[#9883E5]',
+              socialHoverTextColor: 'hover:text-[#1F035B]',
+            },
+            // Lyons — Empirix
+            {
+              name: 'Luke Lyons',
+              company: 'Empirix Partners',
+              role: 'Senior Analyst',
+              bio: 'Performs data-driven supply chain analysis and market research supporting strategic procurement decisions at scale.',
+              avatar: lukeLyons,
+              social: { linkedin: 'https://www.linkedin.com/in/luke-lyons/' },
+              cardBgColor: 'bg-[#013823]',
+              nameColor: '!text-[#F7FBFF]',
+              companyColor: 'text-[#94d4b6]',
+              roleColor: 'text-[#94d4b6]',
+              bioColor: 'text-[#D3D3D3]',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#94d4b6]',
+              socialHoverBgColor: 'hover:bg-[#94d4b6]',
+              socialHoverTextColor: 'hover:text-[#013823]',
+            },
+            // McCarthy — Decennial
+            {
+              name: 'Owen McCarthy',
+              company: 'Decennial Group',
+              role: 'Partner, Investment Strategy',
+              bio: 'Shapes investment thesis and portfolio construction, identifying high-conviction opportunities in digital infrastructure.',
+              avatar: owenMcCarthy,
+              social: { linkedin: 'https://www.linkedin.com/in/owen-mccarthy/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Pavlik — Decennial
+            {
+              name: 'David Pavlik',
+              company: 'Decennial Group',
+              role: 'Managing Partner & Co-Founder',
+              bio: '15+ years energy infrastructure experience. Structured over $2.0B in renewable energy and infrastructure projects.',
+              avatar: DavidPavlik,
+              social: { linkedin: 'https://www.linkedin.com/in/david-pavlik/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Pena — Empirix (dual title)
+            {
+              name: 'Zachary Pena',
+              company: 'Empirix Partners & Perpetual Grid',
+              role: 'CEO',
+              bio: '12+ years supply chain experience. Former Senior Director at NTT and Construction Supply Chain Manager at Microsoft.',
+              avatar: ZachPena,
+              social: { linkedin: 'https://www.linkedin.com/in/zachary-pena/' },
+              cardBgColor: 'bg-[#013823]',
+              nameColor: '!text-[#F7FBFF]',
+              companyColor: 'text-[#94d4b6]',
+              roleColor: 'text-[#94d4b6]',
+              bioColor: 'text-[#D3D3D3]',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#94d4b6]',
+              socialHoverBgColor: 'hover:bg-[#94d4b6]',
+              socialHoverTextColor: 'hover:text-[#013823]',
+            },
+            // Pleasant — Decennial
+            {
+              name: 'Adam Pleasant',
+              company: 'Decennial Group',
+              role: 'AI Chief',
+              bio: 'Drives AI strategy and automation across enterprise operations, building intelligent systems for infrastructure firms.',
+              avatar: adamPleasant,
+              social: { linkedin: 'https://www.linkedin.com/in/adampleasant/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Pruitt — Decennial
+            {
+              name: 'Mark Pruitt',
+              company: 'Decennial Group',
+              role: 'Partner, Energy',
+              bio: 'Drives energy strategy and power procurement, leveraging deep utility industry relationships for competitive advantage.',
+              avatar: markPruitt,
+              social: { linkedin: 'https://www.linkedin.com/in/mark-pruitt/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Rambo — Decennial
+            {
+              name: 'Paul Rambo',
+              company: 'Decennial Group',
+              role: 'Partner, Delivery',
+              bio: '10+ years data center industry experience. Former Critical Facilities Manager at T5 Data Centers and Equinix.',
+              avatar: PaulRambo,
+              social: { linkedin: 'https://www.linkedin.com/in/paul-rambo/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Rose — Empirix
+            {
+              name: 'Rebecca Rose',
+              company: 'Empirix Partners',
+              role: 'Manager',
+              bio: 'Manages procurement workflows and team operations, ensuring seamless delivery of critical supply chain services.',
+              avatar: rebeccaRose,
+              social: { linkedin: 'https://www.linkedin.com/in/rebecca-rose/' },
+              cardBgColor: 'bg-[#013823]',
+              nameColor: '!text-[#F7FBFF]',
+              companyColor: 'text-[#94d4b6]',
+              roleColor: 'text-[#94d4b6]',
+              bioColor: 'text-[#D3D3D3]',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#94d4b6]',
+              socialHoverBgColor: 'hover:bg-[#94d4b6]',
+              socialHoverTextColor: 'hover:text-[#013823]',
+            },
+            // Simpson — Decennial
+            {
+              name: 'Audrey Simpson',
+              company: 'Decennial Group',
+              role: 'Vice President, Asset Management',
+              bio: 'Leads asset management strategy maximizing portfolio value across digital infrastructure and real estate investments.',
+              avatar: audreySimpson,
+              social: { linkedin: 'https://www.linkedin.com/in/audrey-simpson/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
+            },
+            // Summers — Empirix (dual title)
+            {
+              name: 'Ethan Summers',
+              company: 'Empirix Partners & Perpetual Grid',
+              role: 'Chief of Staff',
+              bio: 'Drives cross-functional operations for both Empirix and Perpetual Grid, aligning strategy with tactical execution.',
+              avatar: ethanSummers,
+              social: { linkedin: 'https://www.linkedin.com/in/ethan-summers/' },
+              cardBgColor: 'bg-[#013823]',
+              nameColor: '!text-[#F7FBFF]',
+              companyColor: 'text-[#94d4b6]',
+              roleColor: 'text-[#94d4b6]',
+              bioColor: 'text-[#D3D3D3]',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#94d4b6]',
+              socialHoverBgColor: 'hover:bg-[#94d4b6]',
+              socialHoverTextColor: 'hover:text-[#013823]',
+            },
+            // Webb — Perpetual Grid
+            {
+              name: 'Will Webb',
+              company: 'Perpetual Grid',
+              role: 'Vice President',
+              bio: 'Leads power procurement strategy and utility negotiations, securing competitive energy solutions for data centers.',
+              avatar: willWebb,
+              social: { linkedin: 'https://www.linkedin.com/in/will-webb/' },
+              cardBgColor: 'bg-[#1F035B]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#9883E5]',
+              roleColor: 'text-[#9883E5]',
+              bioColor: 'text-gray-300',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#9883E5]',
+              socialHoverBgColor: 'hover:bg-[#9883E5]',
+              socialHoverTextColor: 'hover:text-[#1F035B]',
+            },
+            // Weems — Decennial
+            {
+              name: 'Malcolm Weems',
+              company: 'Decennial Group',
+              role: 'Partner, Community Involvement',
+              bio: 'Leads community engagement and stakeholder relations, building partnerships that strengthen infrastructure project outcomes.',
+              avatar: malcolmWeems,
+              social: { linkedin: 'https://www.linkedin.com/in/malcolm-weems/' },
+              cardBgColor: 'bg-[#312439]',
+              nameColor: '!text-white',
+              companyColor: 'text-[#ebbe07]',
+              roleColor: 'text-[#ebbe07]',
+              bioColor: 'text-white',
+              socialBgColor: 'bg-white/10',
+              socialTextColor: 'text-[#ebbe07]',
+              socialHoverBgColor: 'hover:bg-[#ebbe07]',
+              socialHoverTextColor: 'hover:text-[#312439]',
             },
           ]}
         />
-
       </section>
 
       {/* CTA 
