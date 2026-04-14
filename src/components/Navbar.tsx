@@ -79,10 +79,13 @@ export function Navbar({
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {links.map((link) => (
+              {links.map((link) => {
+                const isExternal = link.href.startsWith('http');
+                return (
                 <div key={link.label} className="relative group">
                   <a
                     href={link.href}
+                    {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                     className={clsx(
                       'flex items-center gap-1 text-sm font-medium transition-colors',
                       textColor,
@@ -108,7 +111,8 @@ export function Navbar({
                     </div>
                   )}
                 </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* CTA Button */}
@@ -140,16 +144,20 @@ export function Navbar({
         )}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">
-          {links.map((link) => (
+          {links.map((link) => {
+            const isExternal = link.href.startsWith('http');
+            return (
             <a
               key={link.label}
               href={link.href}
+              {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               className="text-2xl font-medium text-gray-900 hover:text-blue-600 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
             </a>
-          ))}
+            );
+          })}
           <a
             href={ctaHref}
             className="mt-4 inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"

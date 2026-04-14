@@ -79,6 +79,7 @@ function App() {
           { label: 'Global Reach', href: '#global' },
           { label: 'Leadership', href: '#team' },
           { label: 'Contact', href: '#contact' },
+          { label: 'Investor Portal', href: 'https://services.dataexchange.fiscloudservices.com/LogOn/4373073?redirectUrl=%2FDocument%2F4373073' },
         ]}
         ctaText="Get Started"
         ctaHref="#contact"
