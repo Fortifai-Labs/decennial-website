@@ -25,10 +25,10 @@ import ajKrappman from './assets/Headshots/ajKrappman.png';
 import angelaArriaga from './assets/Headshots/angelaArriaga.png';
 import angelaDuncan from './assets/Headshots/angelaDuncan.png';
 import audreySimpson from './assets/Headshots/audreySimpson.png';
-import benKroll from './assets/Headshots/benKroll.png';
+
 import carterBarczak from './assets/Headshots/carterBarczak.png';
 import chaseCook from './assets/Headshots/chaseCook.png';
-import drewWorkheiser from './assets/Headshots/drewWorkheiser.png';
+
 import elizabethCarter from './assets/Headshots/elizabethCarter.png';
 import ethanSummers from './assets/Headshots/ethanSummers.png';
 import joeKreeger from './assets/Headshots/joeKreeger.png';
@@ -39,7 +39,7 @@ import kostaHontos from './assets/Headshots/kostaHontos.png';
 import lukeLyons from './assets/Headshots/lukeLyons.png';
 import malcolmWeems from './assets/Headshots/malcolmWeems.png';
 import markPruitt from './assets/Headshots/markPruitt.png';
-import mattPowers from './assets/Headshots/mattPowers.png';
+
 import nateDziwulski from './assets/Headshots/nateDziwulski.png';
 import owenMcCarthy from './assets/Headshots/owenMcCarthy.png';
 import rebeccaRose from './assets/Headshots/rebeccaRose.png';
@@ -514,49 +514,6 @@ function App() {
           ]}
         />
 
-        {/* Trillium */}
-        <Team
-          title="Trillium"
-          subtitle="Strategic capital advisory and principal investment"
-          cols={4}
-          variant="cards"
-          showSocial={true}
-          showBio={true}
-          bgColor='bg-[#f0f4f8]'
-          textColor='text-[#2a3d5c]'
-          cardBgColor='bg-[#2a3d5c]'
-          nameColor='!text-white'
-          roleColor='text-[#4eace9]'
-          bioColor='text-gray-300'
-          socialBgColor='bg-white/10'
-          socialTextColor='text-[#4eace9]'
-          socialHoverBgColor='hover:bg-[#4eace9]'
-          socialHoverTextColor='hover:text-[#2a3d5c]'
-          avatarRingColor='bg-[#4eace9]'
-          members={[
-            {
-              name: 'Ben Kroll',
-              role: 'Partner',
-              bio: 'Leads principal investments and strategic advisory engagements, structuring capital solutions for infrastructure assets.',
-              avatar: benKroll,
-              social: { linkedin: 'https://www.linkedin.com/in/ben-kroll/' },
-            },
-            {
-              name: 'Drew Workheiser',
-              role: 'Principal',
-              bio: 'Drives deal origination and execution, sourcing high-conviction investment opportunities in digital infrastructure.',
-              avatar: drewWorkheiser,
-              social: { linkedin: 'https://www.linkedin.com/in/drew-workheiser/' },
-            },
-            {
-              name: 'Matt Powers',
-              role: 'Associate',
-              bio: 'Supports financial analysis and transaction diligence, contributing to underwriting across Trillium investment mandates.',
-              avatar: mattPowers,
-              social: { linkedin: 'https://www.linkedin.com/in/matt-powers/' },
-            },
-          ]}
-        />
       </section>
 
       {/* CTA 
