@@ -3,11 +3,12 @@ import GlobeTexture from '../assets/Other/Decennial_Global_Reach_Map.png';
 
 interface GlobalReachSectionProps {
   className?: string;
+  teamCount?: number;
 }
 
-const GlobalReachSection: React.FC<GlobalReachSectionProps> = ({ className = '' }) => {
+const GlobalReachSection: React.FC<GlobalReachSectionProps> = ({ className = '', teamCount }) => {
   const stats = [
-    { value: '43', label: 'Decennial Team Members' },
+    { value: teamCount != null ? String(teamCount) : '43', label: 'Decennial Team Members' },
     { value: '200+', label: 'Employees through formal joint ventures' },
     { value: '15+', label: 'Countries with active development & operations' },
   ];
