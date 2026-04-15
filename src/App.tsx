@@ -10,7 +10,7 @@ import {
   Team,
   CTA,
 } from './components';
-import { Building, CircleDollarSign, Handshake, Linkedin, Mail, MapPin, Newspaper } from 'lucide-react'
+import { Building, CircleDollarSign, Handshake, Linkedin, Mail, MapPin, Newspaper, Users, ShieldCheck, TrendingUp, Zap, Wrench, HardHat, Lightbulb, Server, Factory, UserCheck, Link2, DollarSign, Building2, ClipboardList } from 'lucide-react'
 import { Contact } from './components/Contact';
 import DecennialLogo from './assets/Logos/Decennial_White_Horizontal.png';
 import DecennialNegativeLogo from './assets/Logos/Decennial_Negative_Logo.png';
@@ -690,20 +690,108 @@ function App() {
         />
       </section>
 
-      {/* Stats */}
-      <Stats
-        title="Proven Performance"
-        subtitle="Delivering consistent value creation across multiple economic cycles with zero investor defaults"
-        variant="simple"
-        cols={4}
-        stats={[
-          { value: '$500M+', label: 'Deployed Capital' },
-          { value: '$702M', label: 'Current Portfolio Value' },
-          { value: '$2.8B', label: 'Development Pipeline' },
-          { value: '57%', label: 'Value Appreciation' },
-        ]}
-        valueColor='text-[var(--decennial-secondary)]'
-      />
+      {/* Decennial Group Overview */}
+      <section className="bg-[var(--decennial-primary)] py-16 lg:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Title */}
+          <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-16">
+            Decennial Group Overview
+          </h2>
+
+          {/* Top Stats Row */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-20">
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--decennial-secondary)] mb-2">
+                $2.7B
+              </div>
+              <div className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider mb-1">
+                Active Pipeline
+              </div>
+              <div className="text-xs text-gray-400">
+                ($500M of Deployed Capital)
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--decennial-secondary)] mb-2">
+                {teamMembers.length}
+              </div>
+              <div className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
+                Team Members
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--decennial-secondary)] mb-2">
+                4
+              </div>
+              <div className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
+                Recessions of Experience
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--decennial-secondary)] mb-2">
+                Zero
+              </div>
+              <div className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
+                Investor or Lender Defaults
+              </div>
+            </div>
+          </div>
+
+          {/* Full Spectrum Capabilities */}
+          <div className="mb-20">
+            <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-10 uppercase tracking-wider">
+              Full Spectrum Capabilities
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-6">
+              {[
+                { icon: <UserCheck className="w-7 h-7" />, label: 'Customer / Tenant Origination' },
+                { icon: <Zap className="w-7 h-7" />, label: 'Deep Energy & Supply Chain Expertise In House' },
+                { icon: <DollarSign className="w-7 h-7" />, label: 'Full Stack Capital Management' },
+                { icon: <Building2 className="w-7 h-7" />, label: 'Ongoing Property Operations' },
+                { icon: <HardHat className="w-7 h-7" />, label: 'Construction Management' },
+                { icon: <Lightbulb className="w-7 h-7" />, label: 'Strategy Development' },
+                { icon: <Wrench className="w-7 h-7" />, label: 'Turnkey Development' },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col items-center text-center gap-3">
+                  <div className="w-14 h-14 rounded-xl bg-[var(--decennial-secondary)]/10 border border-[var(--decennial-secondary)]/30 flex items-center justify-center text-[var(--decennial-secondary)]">
+                    {item.icon}
+                  </div>
+                  <span className="text-xs sm:text-sm font-medium text-white leading-tight">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Active Platforms */}
+          <div>
+            <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-10 uppercase tracking-wider">
+              Active Platforms
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              <div className="rounded-xl border border-[var(--decennial-secondary)]/30 bg-[var(--decennial-secondary)]/5 p-6 flex flex-col items-center text-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-[var(--decennial-secondary)]/10 flex items-center justify-center text-[var(--decennial-secondary)]">
+                  <Server className="w-8 h-8" />
+                </div>
+                <div>
+                  <div className="text-lg font-bold text-white mb-1">Data Centers</div>
+                  <div className="text-sm text-gray-400">& Information Technology</div>
+                </div>
+              </div>
+              <div className="rounded-xl border border-[var(--decennial-secondary)]/30 bg-[var(--decennial-secondary)]/5 p-6 flex flex-col items-center text-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-[var(--decennial-secondary)]/10 flex items-center justify-center text-[var(--decennial-secondary)]">
+                  <Factory className="w-8 h-8" />
+                </div>
+                <div>
+                  <div className="text-lg font-bold text-white mb-1">Energy Intensive</div>
+                  <div className="text-sm text-gray-400">Build-to-Suits</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Timeline */}
       <section id="journey">
