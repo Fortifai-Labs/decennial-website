@@ -703,7 +703,6 @@ function App() {
           <div className="flex flex-wrap justify-between mb-12">
             {[
               { value: '$2.7 Billion', sub: 'Active Pipeline', note: '($500M of Deployed Capital)' },
-              { value: String(teamMembers.length), sub: 'Team Members', note: '' },
               { value: '4', sub: 'Recessions of Experience', note: '' },
               { value: 'ZERO', sub: 'Investor or Lender Defaults', note: '' },
             ].map((stat, i) => (
