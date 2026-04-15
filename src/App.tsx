@@ -691,72 +691,58 @@ function App() {
       </section>
 
       {/* Decennial Group Overview */}
-      <section className="bg-[var(--decennial-primary)] py-16 lg:py-24">
+      <section className="bg-white py-16 lg:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Title */}
-          <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-16">
+          {/* Title with underline */}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--decennial-primary)] mb-2">
             Decennial Group Overview
           </h2>
+          <div className="h-0.5 bg-[var(--decennial-primary)] mb-10" />
 
-          {/* Top Stats Row */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-20">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--decennial-secondary)] mb-2">
-                $2.7B
+          {/* Stats Row — separated by vertical dividers */}
+          <div className="flex flex-wrap justify-between mb-12">
+            {[
+              { value: '$2.7 Billion', sub: 'Active Pipeline', note: '($500M of Deployed Capital)' },
+              { value: String(teamMembers.length), sub: 'Team Members', note: '' },
+              { value: '4', sub: 'Recessions of Experience', note: '' },
+              { value: 'ZERO', sub: 'Investor or Lender Defaults', note: '' },
+            ].map((stat, i) => (
+              <div key={i} className="flex-1 min-w-[140px] text-center py-4 border-r border-gray-200 last:border-r-0">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--decennial-secondary)] mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-[10px] sm:text-xs font-bold text-[var(--decennial-primary)] uppercase tracking-wider">
+                  {stat.sub}
+                </div>
+                {stat.note && (
+                  <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5">{stat.note}</div>
+                )}
               </div>
-              <div className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider mb-1">
-                Active Pipeline
-              </div>
-              <div className="text-xs text-gray-400">
-                ($500M of Deployed Capital)
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--decennial-secondary)] mb-2">
-                {teamMembers.length}
-              </div>
-              <div className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
-                Team Members
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--decennial-secondary)] mb-2">
-                4
-              </div>
-              <div className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
-                Recessions of Experience
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--decennial-secondary)] mb-2">
-                Zero
-              </div>
-              <div className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
-                Investor or Lender Defaults
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* Full Spectrum Capabilities */}
-          <div className="mb-20">
-            <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-10 uppercase tracking-wider">
-              Full Spectrum Capabilities
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-6">
+          <h3 className="text-sm sm:text-base font-bold text-[var(--decennial-primary)] text-center uppercase tracking-[0.2em] mb-8">
+            Full Spectrum Capabilities
+          </h3>
+
+          {/* Capabilities row in a rounded container */}
+          <div className="rounded-2xl border border-gray-200 px-4 py-8 mb-12">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-y-8 gap-x-4">
               {[
-                { icon: <UserCheck className="w-7 h-7" />, label: 'Customer / Tenant Origination' },
-                { icon: <Zap className="w-7 h-7" />, label: 'Deep Energy & Supply Chain Expertise In House' },
-                { icon: <DollarSign className="w-7 h-7" />, label: 'Full Stack Capital Management' },
-                { icon: <Building2 className="w-7 h-7" />, label: 'Ongoing Property Operations' },
-                { icon: <HardHat className="w-7 h-7" />, label: 'Construction Management' },
-                { icon: <Lightbulb className="w-7 h-7" />, label: 'Strategy Development' },
-                { icon: <Wrench className="w-7 h-7" />, label: 'Turnkey Development' },
+                { icon: <Wrench className="w-6 h-6 sm:w-7 sm:h-7" />, label: 'Turnkey\nDevelopment' },
+                { icon: <UserCheck className="w-6 h-6 sm:w-7 sm:h-7" />, label: 'Customer /\nTenant\nOrigination' },
+                { icon: <Zap className="w-6 h-6 sm:w-7 sm:h-7" />, label: 'Deep Energy and\nSupply Chain\nExpertise In House' },
+                { icon: <DollarSign className="w-6 h-6 sm:w-7 sm:h-7" />, label: 'Full Stack\nCapital\nManagement' },
+                { icon: <Building2 className="w-6 h-6 sm:w-7 sm:h-7" />, label: 'Ongoing\nProperty\nOperations' },
+                { icon: <HardHat className="w-6 h-6 sm:w-7 sm:h-7" />, label: 'Construction\nManagement' },
+                { icon: <ClipboardList className="w-6 h-6 sm:w-7 sm:h-7" />, label: 'Strategy\nDevelopment' },
               ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center text-center gap-3">
-                  <div className="w-14 h-14 rounded-xl bg-[var(--decennial-secondary)]/10 border border-[var(--decennial-secondary)]/30 flex items-center justify-center text-[var(--decennial-secondary)]">
+                <div key={i} className="flex flex-col items-center text-center gap-2">
+                  <div className="text-[var(--decennial-secondary)]">
                     {item.icon}
                   </div>
-                  <span className="text-xs sm:text-sm font-medium text-white leading-tight">
+                  <span className="text-[10px] sm:text-xs font-bold text-[var(--decennial-primary)] uppercase tracking-wider leading-tight whitespace-pre-line">
                     {item.label}
                   </span>
                 </div>
@@ -764,29 +750,29 @@ function App() {
             </div>
           </div>
 
+          {/* Divider */}
+          <div className="h-px bg-gray-200 mb-10" />
+
           {/* Active Platforms */}
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-10 uppercase tracking-wider">
-              Active Platforms
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-              <div className="rounded-xl border border-[var(--decennial-secondary)]/30 bg-[var(--decennial-secondary)]/5 p-6 flex flex-col items-center text-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-[var(--decennial-secondary)]/10 flex items-center justify-center text-[var(--decennial-secondary)]">
-                  <Server className="w-8 h-8" />
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-white mb-1">Data Centers</div>
-                  <div className="text-sm text-gray-400">& Information Technology</div>
-                </div>
+          <h3 className="text-sm sm:text-base font-bold text-[var(--decennial-primary)] text-center uppercase tracking-[0.2em] mb-8">
+            Active Platforms
+          </h3>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
+            <div className="flex items-center gap-4">
+              <div className="text-[var(--decennial-secondary)]">
+                <Server className="w-10 h-10" />
               </div>
-              <div className="rounded-xl border border-[var(--decennial-secondary)]/30 bg-[var(--decennial-secondary)]/5 p-6 flex flex-col items-center text-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-[var(--decennial-secondary)]/10 flex items-center justify-center text-[var(--decennial-secondary)]">
-                  <Factory className="w-8 h-8" />
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-white mb-1">Energy Intensive</div>
-                  <div className="text-sm text-gray-400">Build-to-Suits</div>
-                </div>
+              <div className="text-xs sm:text-sm font-bold text-[var(--decennial-primary)] uppercase tracking-wider leading-tight">
+                Data Centers<br />& Information<br />Technology
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="text-[var(--decennial-secondary)]">
+                <Factory className="w-10 h-10" />
+              </div>
+              <div className="text-xs sm:text-sm font-bold text-[var(--decennial-primary)] uppercase tracking-wider leading-tight">
+                Energy<br />Intensive<br />Build-to-Suits
               </div>
             </div>
           </div>
