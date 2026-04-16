@@ -64,6 +64,7 @@ import LakeviewGreen from './assets/Other/LakeviewGreen.jpg';
 import Soli1 from './assets/Other/Soli1.png';
 import Soli2 from './assets/Other/Soli2.jpg';
 import Soli3 from './assets/Other/Soli3.jpg';
+import DXPhase3 from './assets/Other/DX-Phase3.jpg';
 
 const teamMembers = [
             // Empirix colors:   bg #013823, name #F7FBFF, company/role #94d4b6, bio #D3D3D3
@@ -648,12 +649,10 @@ function App() {
           bgColor='bg-[var(--decennial-primary)]'
           secondaryCta=''
           image={
-            <DecennialHeroImage
-              images={[FultonMarketDistrict, DigitalCrossroads, Soli1, Datacenter1, LakeviewGreen, Soli2, Datacenter2, Soli3, Datacenter3]}
-              rotateImages={true}
-              interval={5000}
-              strokeColor="var(--decennial-primary)"
-              strokeWidth={5}
+            <img
+              src={DXPhase3}
+              alt="DX Phase 3"
+              className="rounded-2xl w-full object-cover"
             />
           }
         />
