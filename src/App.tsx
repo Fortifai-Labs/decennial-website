@@ -678,7 +678,7 @@ function App() {
               <p className="text-[#c4b8cb] text-sm leading-relaxed">In-house real estate development capabilities spanning site due diligence, land entitlement, construction management, and turnkey delivery for mission-critical facilities.</p>
             </div>
             {/* Decennial Capital — Mid tone */}
-            <div className="rounded-xl p-8 bg-[#4a3655] text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+            <div className="rounded-xl p-8 bg-[#634a72] text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
               <div className="w-12 h-12 mb-5 rounded-xl bg-[#ebbe07]/15 flex items-center justify-center text-[#ebbe07]">
                 <CircleDollarSign className="w-6 h-6" />
               </div>
@@ -686,7 +686,7 @@ function App() {
               <p className="text-[#c4b8cb] text-sm leading-relaxed">Full-stack capital management via discretionary commingled funds, separately managed accounts, and joint ventures optimizing structure, returns, and execution certainty.</p>
             </div>
             {/* Tactical Operations — Lightest */}
-            <div className="rounded-xl p-8 bg-[#634a72] text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+            <div className="rounded-xl p-8 bg-[#8b6f9a] text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
               <div className="w-12 h-12 mb-5 rounded-xl bg-[#ebbe07]/15 flex items-center justify-center text-[#ebbe07]">
                 <Handshake className="w-6 h-6" />
               </div>
