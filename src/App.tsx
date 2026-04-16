@@ -662,32 +662,39 @@ function App() {
       <Divider spacing="lg" />
 
       {/* Platform - Three Pillars */}
-      <section id="platform">
-        <Features
-          title="Our Integrated Platform"
-          subtitle="Three complementary pillars delivering comprehensive digital infrastructure solutions"
-          cols={3}
-          gap="lg"
-          variant="cards"
-          cardHover={true}
-          features={[
-            {
-              title: 'Decennial Development',
-              description: 'In-house real estate development capabilities spanning site due diligence, land entitlement, construction management, and turnkey delivery for mission-critical facilities.',
-              icon: <Building />,
-            },
-            {
-              title: 'Decennial Capital',
-              description: 'Full-stack capital management via discretionary commingled funds, separately managed accounts, and joint ventures optimizing structure, returns, and execution certainty.',
-              icon: <CircleDollarSign />,
-            },
-            {
-              title: 'Tactical Operations',
-              description: 'Differentiated critical services in data, energy, and supply chain through Perpetual Grid and Empirix Partners—converting cost centers into profit centers.',
-              icon: <Handshake />,
-            },
-          ]}
-        />
+      <section id="platform" className="py-16 lg:py-24 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Integrated Platform</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Three complementary pillars delivering comprehensive digital infrastructure solutions</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Decennial Development — Deep purple + gold */}
+            <div className="rounded-xl p-8 bg-[#312439] text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="w-12 h-12 mb-5 rounded-xl bg-[#ebbe07]/20 flex items-center justify-center text-[#ebbe07]">
+                <Building className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-[#ebbe07]">Decennial Development</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">In-house real estate development capabilities spanning site due diligence, land entitlement, construction management, and turnkey delivery for mission-critical facilities.</p>
+            </div>
+            {/* Decennial Capital — Perpetual Grid purple + lavender */}
+            <div className="rounded-xl p-8 bg-[#1F035B] text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="w-12 h-12 mb-5 rounded-xl bg-[#9883E5]/20 flex items-center justify-center text-[#9883E5]">
+                <CircleDollarSign className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-[#9883E5]">Decennial Capital</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Full-stack capital management via discretionary commingled funds, separately managed accounts, and joint ventures optimizing structure, returns, and execution certainty.</p>
+            </div>
+            {/* Tactical Operations — Empirix green + mint */}
+            <div className="rounded-xl p-8 bg-[#013823] text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="w-12 h-12 mb-5 rounded-xl bg-[#94d4b6]/20 flex items-center justify-center text-[#94d4b6]">
+                <Handshake className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-[#94d4b6]">Tactical Operations</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Differentiated critical services in data, energy, and supply chain through Perpetual Grid and Empirix Partners — converting cost centers into profit centers.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Decennial Group Overview */}
