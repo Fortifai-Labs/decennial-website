@@ -699,7 +699,7 @@ function App() {
 
           {/* Our Platform infographic */}
           <div className="mt-16">
-            <img src={ourPlatform} alt="Our Platform" className="w-full max-w-4xl mx-auto" />
+            <img src={ourPlatform} alt="Our Platform" className="max-w-[505px] w-full mx-auto" />
           </div>
         </div>
       </section>
@@ -709,7 +709,7 @@ function App() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--decennial-primary)] mb-2">Our Process</h2>
           <div className="h-0.5 bg-[var(--decennial-primary)] mb-10" />
-          <img src={theProcess} alt="Our Process" className="w-full max-w-4xl mx-auto" />
+          <img src={theProcess} alt="Our Process" className="max-w-[502px] w-full mx-auto" />
         </div>
       </section>
 
