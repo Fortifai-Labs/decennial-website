@@ -649,10 +649,11 @@ function App() {
           bgColor='bg-[var(--decennial-primary)]'
           secondaryCta=''
           image={
-            <img
-              src={DXPhase3}
-              alt="DX Phase 3"
-              className="rounded-2xl w-full object-cover"
+            <DecennialHeroImage
+              images={[DXPhase3]}
+              rotateImages={false}
+              strokeColor="var(--decennial-primary)"
+              strokeWidth={5}
             />
           }
         />
