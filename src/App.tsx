@@ -686,12 +686,12 @@ function App() {
               <p className="text-[#c4b8cb] text-sm leading-relaxed">Full-stack capital management via discretionary commingled funds, separately managed accounts, and joint ventures optimizing structure, returns, and execution certainty.</p>
             </div>
             {/* Tactical Operations — Lightest */}
-            <div className="rounded-xl p-8 bg-[#8b6f9a] text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-              <div className="w-12 h-12 mb-5 rounded-xl bg-[#ebbe07]/15 flex items-center justify-center text-[#ebbe07]">
+            <div className="rounded-xl p-8 bg-[#312439]/30 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="w-12 h-12 mb-5 rounded-xl bg-[#312439]/20 flex items-center justify-center text-[#ebbe07]">
                 <Handshake className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-[#ebbe07]">Tactical Operations</h3>
-              <p className="text-[#d8cede] text-sm leading-relaxed">Differentiated critical services in data, energy, and supply chain through Perpetual Grid and Empirix Partners — converting cost centers into profit centers.</p>
+              <h3 className="text-xl font-semibold mb-2 text-[#312439]">Tactical Operations</h3>
+              <p className="text-[#4a3655] text-sm leading-relaxed">Differentiated critical services in data, energy, and supply chain through Perpetual Grid and Empirix Partners — converting cost centers into profit centers.</p>
             </div>
           </div>
         </div>
