@@ -106,9 +106,9 @@ const teamMembers = [
               socialHoverBgColor: 'hover:bg-[#94d4b6]',
               socialHoverTextColor: 'hover:text-[#013823]',
             },
-            // Carter, Elizabeth — Decennial
+            // Carter, Catherine — Decennial
             {
-              name: 'Elizabeth Carter',
+              name: 'Catherine Carter',
               company: 'Decennial Group',
               role: 'Intern',
               bio: 'Supports operational and research initiatives, gaining hands-on experience in infrastructure investment management.',
