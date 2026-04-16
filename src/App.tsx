@@ -65,6 +65,8 @@ import Soli1 from './assets/Other/Soli1.png';
 import Soli2 from './assets/Other/Soli2.jpg';
 import Soli3 from './assets/Other/Soli3.jpg';
 import DXPhase3 from './assets/Other/DX-Phase3.jpg';
+import ourPlatform from './assets/Infopraphics/ourPlatform.png';
+import theProcess from './assets/Infopraphics/theProcess.png';
 
 const teamMembers = [
             // Empirix colors:   bg #013823, name #F7FBFF, company/role #94d4b6, bio #D3D3D3
@@ -694,6 +696,20 @@ function App() {
               <p className="text-[#4a3655] text-sm leading-relaxed">Differentiated critical services in data, energy, and supply chain through Perpetual Grid and Empirix Partners — converting cost centers into profit centers.</p>
             </div>
           </div>
+
+          {/* Our Platform infographic */}
+          <div className="mt-16">
+            <img src={ourPlatform} alt="Our Platform" className="w-full max-w-4xl mx-auto" />
+          </div>
+        </div>
+      </section>
+
+      {/* Our Process */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--decennial-primary)] mb-2">Our Process</h2>
+          <div className="h-0.5 bg-[var(--decennial-primary)] mb-10" />
+          <img src={theProcess} alt="Our Process" className="w-full max-w-4xl mx-auto" />
         </div>
       </section>
 
